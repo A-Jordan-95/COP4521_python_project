@@ -4,6 +4,7 @@ Team Members:
 -Alexander Jordan
 -Paul Santora
 -Jacob Petrillo
+-Nicholas Ford
 
 Our project will be a 2D game with a graphical user interface which has an
 escape theme. The setting will be in a cave and will require the player to find
@@ -12,6 +13,7 @@ programming knowledge/python syntax specifically> in order to unlock the next
 level. The player will also have to avoid robots that can kill them. The game
 will be built using the arcade library framework. for the division of work,
 < "enter division of work here" >
+< Nick: Work on menus and transition screens, level design, and other gameplay elements>
 
 Arcade Library documentation can be found here:
 https://arcade.academy/).
