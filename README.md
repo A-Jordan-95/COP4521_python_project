@@ -58,3 +58,5 @@ WORKLOAD:
         deploy as a web application with a site that tracks details
         such as high scores, and allows user profiles etc.>
           -(Alex): I have some experience with the database part of this (not a lot) and really haven't looked into the web application part at all so this is more if we get more team members than we currently have and have the time/capability to pull it off.
+          
+          -(Nick): I can work on building the menu/transitions for the game, as well as the layout and other gameplay aspects.
