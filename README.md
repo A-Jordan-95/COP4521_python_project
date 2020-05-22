@@ -4,6 +4,7 @@ Team Members:
 -Alexander Jordan
 -Paul Santora
 -Jacob Petrillo
+-Nicholas Ford
 
 
 current ideas:
@@ -36,7 +37,7 @@ current ideas:
                         and robots to avoid. maybe the computer pieces are hidden under rocks but some rocks
                         set off a switch that lets in more robots to avoid?
 WORKLOAD:
-  -necessary tasks to split up:
+  -necessary tasks to split up: (PUT YOUR NAME AFTER STUFF YOU WANT TO DO!)
     -1. gathering/drawing graphics for the following sprites:
       -player/s
       -enemy/ies
@@ -57,5 +58,3 @@ WORKLOAD:
         deploy as a web application with a site that tracks details
         such as high scores, and allows user profiles etc.>
           -(Alex): I have some experience with the database part of this (not a lot) and really haven't looked into the web application part at all so this is more if we get more team members than we currently have and have the time/capability to pull it off.
-            -could be a really good resume project at this point and
-            possibly even generate ad revenue on the website?(probably miniscule profits but could cover server hosting costs maybe?).
