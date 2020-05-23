@@ -6,20 +6,21 @@ Team Members:
  - Paul Santora
  - Jacob Petrillo
  - Nicholas Ford
+ - Nathan Granger
 
 What we Hope to Acheive:
   Our project will be a 2D game with a graphical user interface which has an
 escape theme. The setting will be in a cave and will require the player to find
-hidden pieces of a computer in order to solve a quick question about <general
-programming knowledge/python syntax specifically> in order to unlock the next
-level. The player will also have to avoid robots that can kill them. The game
-will be built using the arcade library framework. 
+hidden pieces of a computer in order to solve a quick question about python syntax
+in order to unlock the next level. The player will also have to avoid robots
+that can kill them. The game will be built using the arcade library framework.
 
 Division of work:
  < Nick  - Work on menus and transition screens, level design, and other gameplay elements >
  < Paul  - Graphics and implementation of them; also level design? >
- < Alex  - 
- < Jacob - 
+ < Alex  - graphics drawing/gathering; game physics programming; game rules implementation >
+ < Jacob - Map/level design, graphics drawing/input, game physics>
+ < Nathan - menus/transition screens, building sprites into game, game rules>
 
 Arcade Library documentation can be found here: ------------------------------------
   https://arcade.academy/
