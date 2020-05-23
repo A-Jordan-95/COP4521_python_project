@@ -5,6 +5,7 @@ Team Members:
 -Paul Santora
 -Jacob Petrillo
 -Nicholas Ford
+-Nathan Granger
 
 
 current ideas:
@@ -58,10 +59,11 @@ WORKLOAD:
         deploy as a web application with a site that tracks details
         such as high scores, and allows user profiles etc.>
           -(Alex): I have some experience with the database part of this (not a lot) and really haven't looked into the web application part at all so this is more if we get more team members than we currently have and have the time/capability to pull it off.
-          
+           - I would also like to help with drawing/gathering of graphics for the game and would like to work on game physics and rules.
+
           -(Nick): I can work on building the menu/transitions for the game, as well as the layout and other gameplay aspects.
-          
+
           - (Paul): I have some experience drawing pixel art for games so if we're cool with that style I definetly up for
-          handling the graphics; if not, I would still like to work on the graphics, but I probably wouldn't draw 
-          everything myself. 
+          handling the graphics; if not, I would still like to work on the graphics, but I probably wouldn't draw
+          everything myself.
           I am also very interesested in working on the level desgin of the game.
