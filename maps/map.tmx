@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="2" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../../../Pictures/Saved Pictures/cave_tile.png"/>
+  </tile>
+  <tile id="2">
+   <image width="128" height="128" source="../../../Pictures/Saved Pictures/computer.png"/>
+  </tile>
+ </tileset>
+ <layer id="1" name="Platforms" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYKQDpiWgpx20tGcgwooW9mGzg9r24LKDmvbgs4Na9g22/EGuvwabP3DpJeQ/Su3AxyfFDkrT2UDHB7XsxmYHtfM6vesPWmIAyKMAdw==
+  </data>
+ </layer>
+ <layer id="2" name="Coins" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg+gHmgHTAKRsEIAYM9rw129w1nMBr2AwcANQAADQ==
+  </data>
+ </layer>
+</map>
