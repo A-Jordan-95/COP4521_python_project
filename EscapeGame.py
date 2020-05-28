@@ -2,7 +2,7 @@ import arcade
 #import random
 import os
 
-SCREEN_TITLE = "Platformer"
+SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
 
