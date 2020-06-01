@@ -26,6 +26,7 @@ class MyGame(arcade.Window):
 
         self.coin_list = None
         self.wall_list = None
+        self.background_list = None
         self.player_list = None
         self.enemy_list = None
         self.player_sprite = None
@@ -45,6 +46,7 @@ class MyGame(arcade.Window):
         self.coin_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
         self.enemy_list = arcade.SpriteList()
+        self.background_list = arcade.SpriteList()
 
         #setup player sprite:
         image_source = "Images/platformChar_idle.png"
@@ -72,6 +74,9 @@ class MyGame(arcade.Window):
         #setup coins:
         self.coin_list = arcade.tilemap.process_layer(my_map, coins_layer_name, TILE_SCALING)
 
+        #setup background objects:
+        self.background_list = arcade.tilemap.process_layer(my_map, "Background", TILE_SCALING)
+
         #setup background:
         if my_map.background_color:
             arcade.set_background_color(my_map.background_color)
@@ -82,10 +87,12 @@ class MyGame(arcade.Window):
                                                              GRAVITY)
     def on_draw(self):
         arcade.start_render()
+        self.background_list.draw()
         self.wall_list.draw()
         self.coin_list.draw()
         self.player_list.draw()
         self.enemy_list.draw()
+
 
         score_text = f"Computer pieces found: {self.score}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,

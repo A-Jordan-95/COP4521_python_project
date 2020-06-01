@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="1">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="2" columns="0">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
+ <tileset firstgid="1" name="my_tiles" tilewidth="129" tileheight="128" tilecount="6" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../../../Pictures/Saved Pictures/cave_tile.png"/>
@@ -8,7 +8,24 @@
   <tile id="2">
    <image width="128" height="128" source="../../../Pictures/Saved Pictures/computer.png"/>
   </tile>
+  <tile id="4">
+   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikes.png"/>
+  </tile>
+  <tile id="5">
+   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikesLeft.png"/>
+  </tile>
+  <tile id="6">
+   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikesRight.png"/>
+  </tile>
+  <tile id="7">
+   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikesTop.png"/>
+  </tile>
  </tileset>
+ <layer id="3" name="Background" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAP4KCAT4ocPQAbDcxkp4GZA2EHMkAPJ1qEGz0Avd2Nnr4HIo2TApDTFSlhhewvViq5hRRArXhFd/tAxxcp+Zwa6QtXOFIz39ArD2JLh7jSJro4KxFsWgMAup0A6w==
+  </data>
+ </layer>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJxjZGBgYKQDpiWgpx20tGcgwooW9mGzg9r24LKDmvbgs4Na9g22/EGuvwabP3DpJeQ/Su3AxyfFDkrT2UDHB7XsxmYHtfM6vesPWmIAyKMAdw==
