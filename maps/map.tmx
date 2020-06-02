@@ -3,22 +3,22 @@
  <tileset firstgid="1" name="my_tiles" tilewidth="129" tileheight="128" tilecount="6" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="128" height="128" source="../../../Pictures/Saved Pictures/cave_tile.png"/>
+   <image width="128" height="128" source="../Images/cave_tile.png"/>
   </tile>
   <tile id="2">
-   <image width="128" height="128" source="../../../Pictures/Saved Pictures/computer.png"/>
+   <image width="128" height="128" source="../Images/computer.png"/>
   </tile>
   <tile id="4">
-   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikes.png"/>
+   <image width="129" height="128" source="../Images/caveSpikes.png"/>
   </tile>
   <tile id="5">
-   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikesLeft.png"/>
+   <image width="129" height="128" source="../Images/caveSpikesLeft.png"/>
   </tile>
   <tile id="6">
-   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikesRight.png"/>
+   <image width="129" height="128" source="../Images/caveSpikesRight.png"/>
   </tile>
   <tile id="7">
-   <image width="129" height="128" source="../../../Pictures/Saved Pictures/caveSpikesTop.png"/>
+   <image width="129" height="128" source="../Images/caveSpikesTop.png"/>
   </tile>
  </tileset>
  <layer id="3" name="Background" width="25" height="20">

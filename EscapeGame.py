@@ -37,6 +37,13 @@ class MyGame(arcade.Window):
         self.game_over = False
         arcade.set_background_color(arcade.csscolor.BLACK)
 
+        #Check if movement key is being pressed
+        self.left_pressed = False
+        self.right_pressed = False
+        self.up_pressed = False
+        self.down_pressed = False
+
+
     def setup(self):
         #setup sprite lists
         self.view_bottom = 0
@@ -97,23 +104,38 @@ class MyGame(arcade.Window):
         score_text = f"Computer pieces found: {self.score}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
-
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key, modifiers: int):
         if key == arcade.key.UP:
             if self.physics_engine.can_jump():
                 self.player_sprite.change_y = PLAYER_JUMP_SPEED
-        elif key == arcade.key.LEFT:
-            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
-        elif key == arcade.key.RIGHT:
-            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
-
-    def on_key_release(self, key, modifiers):
+        if key == arcade.key.RIGHT:
+            self.right_pressed = True
         if key == arcade.key.LEFT:
-            self.player_sprite.change_x = 0
-        elif key == arcade.key.RIGHT:
-            self.player_sprite.change_x = 0
+            self.left_pressed = True
+
+    def on_key_release(self, key, modifiers: int):
+        if key == arcade.key.UP:
+            self.up_pressed = False
+        if key == arcade.key.DOWN:
+            self.down_pressed = False
+        if key == arcade.key.RIGHT:
+            self.right_pressed = False
+        if key == arcade.key.LEFT:
+            self.left_pressed = False
+
 
     def on_update(self, delta_time):
+
+        #!--Movement section --!
+        self.player_sprite.change_x = 0
+
+         #Left - Right
+        if self.right_pressed and not self.left_pressed:
+            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+        elif self.left_pressed and not self.right_pressed:
+            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
+        #-Movement section end--
+
         #check if game over:
         if not self.game_over:
             #move enemies
@@ -124,7 +146,6 @@ class MyGame(arcade.Window):
                 if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
                     #reverse if hit wall
                     enemy.change_x *= -1
-
 
             #update physics engine
             self.physics_engine.update()
@@ -167,6 +188,11 @@ class MyGame(arcade.Window):
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
                 self.game_over = True
+
+        #!--Game Over --!
+        else:
+            self.setup()
+            self.game_over = False
 
 
 def main():
