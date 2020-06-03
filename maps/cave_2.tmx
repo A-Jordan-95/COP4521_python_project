@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="ice_tileset.tsx"/>
+ <layer id="5" name="Background" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAHgzCcQAAQ==
+  </data>
+ </layer>
+ <layer id="4" name="Platforms" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzjYGBgYKUh5oBiWoJRO1ABCxZMih0sJIqjA3qGFT6/UssOWoLBYAc1wm0w+IPeduBKc4TCc6D9Qa28MtD+GMx2oIcxsh3Dubyihr8Ggz+oaQe2OopaGGQ+AH3SAuA=
+  </data>
+ </layer>
+ <layer id="2" name="Coins" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAwGYB9oBdAQjya+jYPCA0XQ3CnABQmljNO0MTzAc4xUAWmQAEw==
+  </data>
+ </layer>
+</map>

@@ -15,10 +15,39 @@ GRID_PIXEL_SIZE = (SPRITE_PIXEL_SIZE * TILE_SCALING)
 PLAYER_MOVEMENT_SPEED = 10
 GRAVITY = 0.75
 PLAYER_JUMP_SPEED = 20
+
 LEFT_VIEWPORT_MARGIN = 250
 RIGHT_VIEWPORT_MARGIN = 250
 BOTTOM_VIEWPORT_MARGIN = 100
 TOP_VIEWPORT_MARGIN = 100
+
+TEXTURE_FACING_LEFT = 1
+TEXTURE_FACING_RIGHT = 0
+
+class Player(arcade.Sprite):
+    def __init__(self):
+        super().__init__()
+
+        #Player Textures
+        self.textures = []
+        texture = arcade.load_texture("Images/platformChar_idle.png")
+        self.textures.append(texture)
+        texture = arcade.load_texture("Images/platformChar_idle.png", mirrored=True)
+        self.textures.append(texture)
+
+        self.scale = CHARACTER_SCALING
+
+        #Default texture - set right
+        self.set_texture(TEXTURE_FACING_RIGHT)
+
+    def update_animation(self, delta_time: float = 1/60):
+
+        #Player image based on movement
+        if (self.change_x < 0):
+            self.texture = self.textures[TEXTURE_FACING_LEFT]
+        elif self.change_x > 0:
+            self.texture = self.textures[TEXTURE_FACING_RIGHT]
+
 
 class MyGame(arcade.Window):
     def __init__(self):
@@ -43,12 +72,15 @@ class MyGame(arcade.Window):
         self.up_pressed = False
         self.down_pressed = False
 
+        #Determines map
+        self.level = 1
 
-    def setup(self):
+    def setup(self, level):
         #setup sprite lists
         self.view_bottom = 0
         self.view_left = 0
         self.score = 0
+        self.coinTotal = 0
         self.player_list = arcade.SpriteList()
         self.coin_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
@@ -56,8 +88,7 @@ class MyGame(arcade.Window):
         self.background_list = arcade.SpriteList()
 
         #setup player sprite:
-        image_source = "Images/platformChar_idle.png"
-        self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
+        self.player_sprite = Player()
         self.player_sprite.center_x = 128
         self.player_sprite.center_y = 128
         self.player_list.append(self.player_sprite)
@@ -68,23 +99,31 @@ class MyGame(arcade.Window):
         enemy.center_y = 110
         enemy.change_x = 2
         self.enemy_list.append(enemy)
+
         #setup map:
-        map_name = "maps/map.tmx"
+        #Map is loaded based on the level
+        map_name = f"maps/cave_{level}.tmx"
         platforms_layer_name = 'Platforms'
         coins_layer_name = 'Coins'
         my_map = arcade.tilemap.read_tmx(map_name)
+
+        #!-- Platform section --!
         #set up platforms:
         self.wall_list = arcade.tilemap.process_layer(map_object = my_map,
                                                       layer_name = platforms_layer_name,
                                                       scaling = TILE_SCALING)
-
-        #setup coins:
+        #!-- Coin section --!
+        #setup coins and total:
         self.coin_list = arcade.tilemap.process_layer(my_map, coins_layer_name, TILE_SCALING)
+        self.coinTotal = len(self.coin_list)
 
+        #!--Background section --!
         #setup background objects:
         self.background_list = arcade.tilemap.process_layer(my_map, "Background", TILE_SCALING)
 
         #setup background:
+        if level == 2:
+            arcade.set_background_color((109,205,247))
         if my_map.background_color:
             arcade.set_background_color(my_map.background_color)
 
@@ -100,10 +139,11 @@ class MyGame(arcade.Window):
         self.player_list.draw()
         self.enemy_list.draw()
 
-
-        score_text = f"Computer pieces found: {self.score}"
+        #Display Objective
+        score_text = f"Computer pieces found: {self.score} / {self.coinTotal}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
+
     def on_key_press(self, key, modifiers: int):
         if key == arcade.key.UP:
             if self.physics_engine.can_jump():
@@ -125,6 +165,8 @@ class MyGame(arcade.Window):
 
 
     def on_update(self, delta_time):
+        #Update Player Image
+        self.player_list.update_animation()
 
         #!--Movement section --!
         self.player_sprite.change_x = 0
@@ -134,7 +176,6 @@ class MyGame(arcade.Window):
             self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
         elif self.left_pressed and not self.right_pressed:
             self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
-        #-Movement section end--
 
         #check if game over:
         if not self.game_over:
@@ -185,19 +226,26 @@ class MyGame(arcade.Window):
                 self.view_left = int(self.view_left)
                 arcade.set_viewport(self.view_left, SCREEN_WIDTH + self.view_left,
                                     self.view_bottom, SCREEN_HEIGHT + self.view_bottom)
+
+            #Check to advance level
+            if(self.score == self.coinTotal):
+                self.level += 1
+
+                #Setup next level
+                self.setup(self.level)
+
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
                 self.game_over = True
 
         #!--Game Over --!
         else:
-            self.setup()
+            self.setup(self.level)
             self.game_over = False
-
 
 def main():
     window = MyGame()
-    window.setup()
+    window.setup(window.level)
     arcade.run()
 
 if __name__ == "__main__":
