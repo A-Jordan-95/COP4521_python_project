@@ -20,9 +20,9 @@ Team Members:
         - once all pieces found can use the computer to open the "vault" or something similar to the next level.
         - maybe have player use computer to answer a computer sciencey question to "unlock" next level?
           - i.e. what is proper syntax for python for loop, etc.
-      
+
 WORKLOAD:
-  - necessary tasks to split up: (PUT YOUR NAME AFTER STUFF YOU WANT TO DO!)
+  - necessary tasks to split up:
     - 1. gathering/drawing graphics for the following sprites:
       - player/s
       - enemy/ies
@@ -33,21 +33,11 @@ WORKLOAD:
     - 2. build above graphics into game once gathered
     - 3. build menu/transition screens
     - 4. gameplay design:
-      - choose layout <side view platformer/top view static map>
-      - choose physics engine to use <built in arcade physics_engine/pymunk>
-      - choose how to advance to next level <gen programming/python>
-      - <build in extras like guns/shields/extra lives etc.>
-    - 5. implementation of game physics once above have been decided
-    - 6. streeeeeeeetch goals:
-        <connect game with a SQL backend using python libraries and
-        deploy as a web application with a site that tracks details
-        such as high scores, and allows user profiles etc.>
-          - (Alex): I have some experience with the database part of this (not a lot) and really haven't looked into the web application part at all so this is more if we get more team members than we currently have and have the time/capability to pull it off.
-           -  I would also like to help with drawing/gathering of graphics for the game and would like to work on game physics and rules.
-
-          - (Nick): I can work on building the menu/transitions for the game, as well as the layout and other gameplay aspects.
-
-          -  (Paul): I have some experience drawing pixel art for games so if we're cool with that style I definetly up for
-          handling the graphics; if not, I would still like to work on the graphics, but I probably wouldn't draw
-          everything myself.
-          I am also very interesested in working on the level desgin of the game.
+      - platformer with multiple levels
+      - initial goal of five total levels for the game
+    - 5. implementation of game physics/flow rules
+    - 6. stretch goals:
+        - connect game with a SQL backend using python libraries and
+          deploy as a web application with a site that tracks details
+          such as high scores, and allows user profiles etc.
+            - research feasibility of using flask for this task and decide
