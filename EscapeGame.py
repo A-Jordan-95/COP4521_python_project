@@ -2,6 +2,9 @@ import arcade
 #import random
 import os
 
+#user defined classes:
+import Levels
+
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
@@ -73,7 +76,8 @@ class MyGame(arcade.Window):
         self.down_pressed = False
 
         #Determines map
-        self.level = 1
+        self.level = 0
+        self.levels = None
 
     def setup(self, level):
         #setup sprite lists
@@ -93,6 +97,16 @@ class MyGame(arcade.Window):
         self.player_sprite.center_y = 128
         self.player_list.append(self.player_sprite)
 
+        #setup level info:
+        self.levels = Levels.level_list
+        self.levels[self.level].setup()
+        for wall in self.levels[self.level].get_walls(): self.wall_list.append(wall)
+        for coin in self.levels[self.level].get_coins(): self.coin_list.append(coin)
+        for enemy in self.levels[self.level].get_enemies(): self.enemy_list.append(enemy)
+        for background in self.levels[self.level].get_background(): self.background_list.append(background)
+        self.coinTotal = len(self.coin_list)
+
+        """
         #setup enemy sprites
         enemy = arcade.Sprite("Images/robot.png", CHARACTER_SCALING)
         enemy.center_x = 800
@@ -120,12 +134,11 @@ class MyGame(arcade.Window):
         #!--Background section --!
         #setup background objects:
         self.background_list = arcade.tilemap.process_layer(my_map, "Background", TILE_SCALING)
-
+        """
         #setup background:
         if level == 2:
             arcade.set_background_color((109,205,247))
-        if my_map.background_color:
-            arcade.set_background_color(my_map.background_color)
+
 
         ##setup physics engine:
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite,
@@ -228,11 +241,11 @@ class MyGame(arcade.Window):
                                     self.view_bottom, SCREEN_HEIGHT + self.view_bottom)
 
             #Check to advance level
-            if(self.score == self.coinTotal):
-                self.level += 1
+            #if(self.score == self.coinTotal):
+                #self.level += 1
 
                 #Setup next level
-                self.setup(self.level)
+                #self.setup(self.level)
 
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
