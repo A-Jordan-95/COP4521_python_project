@@ -107,6 +107,7 @@ class MyGame(arcade.Window):
         self.coinTotal = len(self.coin_list)
 
         """
+        this is the old code commented out so you can see what I changed:
         #setup enemy sprites
         enemy = arcade.Sprite("Images/robot.png", CHARACTER_SCALING)
         enemy.center_x = 800
