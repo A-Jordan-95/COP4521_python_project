@@ -1,6 +1,7 @@
 import arcade
 #import random
 import os
+import ComputerClue
 
 #user defined classes:
 import Levels
@@ -79,6 +80,9 @@ class MyGame(arcade.Window):
         self.level = 0
         self.levels = None
 
+        #computer clue info:
+        self.comp_clue = None
+
     def setup(self, level):
         #setup sprite lists
         self.view_bottom = 0
@@ -137,9 +141,12 @@ class MyGame(arcade.Window):
         self.background_list = arcade.tilemap.process_layer(my_map, "Background", TILE_SCALING)
         """
         #setup background:
-        if level == 2:
+        if level == 1:
             arcade.set_background_color((109,205,247))
 
+        #setup Computer Clue system:
+        self.comp_clue = ComputerClue.ComputerClue()
+        self.comp_clue.setup()
 
         ##setup physics engine:
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite,
@@ -152,6 +159,7 @@ class MyGame(arcade.Window):
         self.coin_list.draw()
         self.player_list.draw()
         self.enemy_list.draw()
+        self.comp_clue.draw_clue()
 
         #Display Objective
         score_text = f"Computer pieces found: {self.score} / {self.coinTotal}"
@@ -166,6 +174,9 @@ class MyGame(arcade.Window):
             self.right_pressed = True
         if key == arcade.key.LEFT:
             self.left_pressed = True
+        if key == arcade.key.ENTER:
+            if self.comp_clue.show_clue:
+                self.comp_clue.exit_clue()
 
     def on_key_release(self, key, modifiers: int):
         if key == arcade.key.UP:
@@ -193,8 +204,7 @@ class MyGame(arcade.Window):
 
         #check if game over:
         if not self.game_over:
-            #move enemies
-            self.enemy_list.update()
+
 
             #check state of enemy and adjust:
             for enemy in self.enemy_list:
@@ -202,11 +212,19 @@ class MyGame(arcade.Window):
                     #reverse if hit wall
                     enemy.change_x *= -1
 
-            #update physics engine
-            self.physics_engine.update()
+
             #check for coins collected
             coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite,
                                                                  self.coin_list)
+            if coin_hit_list:
+                self.comp_clue.show_clue = True
+                self.comp_clue.update_clue_pos(self.view_bottom, self.view_left)
+            if self.comp_clue.show_clue == False:
+                #update physics engine
+                self.physics_engine.update()
+                #move enemies
+                self.enemy_list.update()
+
             #remove found coins and update score:
             for coin in coin_hit_list:
                 coin.remove_from_sprite_lists()
