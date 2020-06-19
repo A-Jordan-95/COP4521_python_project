@@ -321,6 +321,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.player_list.append(self.player_sprite)
 
         #setup level info:
+        self.level = level                  #Needed so the StartView can choose the level
         self.levels = Levels.level_list
         self.levels[self.level].setup()
         for wall in self.levels[self.level].get_walls(): self.wall_list.append(wall)
