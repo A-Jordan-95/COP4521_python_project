@@ -1,10 +1,9 @@
 import arcade
-#import random
 import os
-import ComputerClue
 
 #user defined classes:
 import Levels
+import ComputerClue
 
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
