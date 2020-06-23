@@ -64,18 +64,21 @@ class Level1(Level):
         super().setup("maps/cave_1.tmx")
         for enemy in self.enemy_sprite_list:
             enemy.change_x = 2 #set speed of enemies
-"""
+
 class Level2(Level):
     def __init__(self):
+        self.map_object = None
         super().__init__()
 
     def setup(self):
-        super().setup("your map path here")
+        super().setup("maps/cave_2.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 'your enemy speed here'
+            enemy.change_x = 2
+"""
 
 class Level3(Level):
     def __init__(self):
+        self.map_object = None
         super().__init__()
 
     def setup(self):
@@ -85,6 +88,7 @@ class Level3(Level):
 
 class Level4(Level):
     def __init__(self):
+        self.map_object = None
         super().__init__()
 
     def setup(self):
@@ -94,6 +98,7 @@ class Level4(Level):
 
 class Level5(Level):
     def __init__(self):
+        self.map_object = None
         super().__init__()
 
     def setup(self):
@@ -103,8 +108,8 @@ class Level5(Level):
 """
 
 lev1 = Level1()
-#lev2 = Level2()
+lev2 = Level2()
 #lev3 = Level3()
 #lev4 = Level4()
 #lev5 = Level5()
-level_list = [lev1]
+level_list = [lev1, lev2]

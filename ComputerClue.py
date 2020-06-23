@@ -13,7 +13,7 @@ class ComputerClue():
         self.clue_sprite_list = arcade.SpriteList()
         if clues:
             self.clues = clues
-        else:
+        else: # for testing purposes
             self.clues = ["clue 1", "clue 2", "clue 3", "clue 4"]
 
         self.clue_sprite = arcade.Sprite("Images/clue_window.png", 1.0)
@@ -39,3 +39,6 @@ class ComputerClue():
                 self.clue_pos += 1
             else:
                 self.clue_pos = 0
+
+    def get_clue(self):
+        return self.clues[self.clue_pos]

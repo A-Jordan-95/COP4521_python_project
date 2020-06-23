@@ -43,6 +43,7 @@ class Player(arcade.Sprite):
 
         #Default texture - set right
         self.set_texture(TEXTURE_FACING_RIGHT)
+        self.current_clues = []
 
     def update_animation(self, delta_time: float = 1/60):
 
@@ -321,45 +322,27 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.player_list.append(self.player_sprite)
 
         #setup level info:
-        self.level = level                  #Needed so the StartView can choose the level
+        self.level = level             #Needed so the StartView can choose the level
         self.levels = Levels.level_list
         self.levels[self.level].setup()
-        for wall in self.levels[self.level].get_walls(): self.wall_list.append(wall)
-        for coin in self.levels[self.level].get_coins(): self.coin_list.append(coin)
-        for enemy in self.levels[self.level].get_enemies(): self.enemy_list.append(enemy)
-        for background in self.levels[self.level].get_background(): self.background_list.append(background)
+
+        # no need to loop through and append the map items, simply assign the list 
+        # returned by the function:
+
+        #for wall in self.levels[self.level].get_walls(): self.wall_list.append(wall)
+        self.wall_list = self.levels[self.level].get_walls()
+
+        #for coin in self.levels[self.level].get_coins(): self.coin_list.append(coin)
+        self.coin_list = self.levels[self.level].get_coins()
+
+        #for enemy in self.levels[self.level].get_enemies(): self.enemy_list.append(enemy)
+        self.enemy_list = self.levels[self.level].get_enemies()
+
+        #for background in self.levels[self.level].get_background(): self.background_list.append(background)
+        self.background_list = self.levels[self.level].get_background()
+
         self.coinTotal = len(self.coin_list)
 
-        """
-        this is the old code commented out so you can see what I changed:
-        #setup enemy sprites
-        enemy = arcade.Sprite("Images/robot.png", CHARACTER_SCALING)
-        enemy.center_x = 800
-        enemy.center_y = 110
-        enemy.change_x = 2
-        self.enemy_list.append(enemy)
-
-        #setup map:
-        #Map is loaded based on the level
-        map_name = f"maps/cave_{level}.tmx"
-        platforms_layer_name = 'Platforms'
-        coins_layer_name = 'Coins'
-        my_map = arcade.tilemap.read_tmx(map_name)
-
-        #!-- Platform section --!
-        #set up platforms:
-        self.wall_list = arcade.tilemap.process_layer(map_object = my_map,
-                                                      layer_name = platforms_layer_name,
-                                                      scaling = TILE_SCALING)
-        #!-- Coin section --!
-        #setup coins and total:
-        self.coin_list = arcade.tilemap.process_layer(my_map, coins_layer_name, TILE_SCALING)
-        self.coinTotal = len(self.coin_list)
-
-        #!--Background section --!
-        #setup background objects:
-        self.background_list = arcade.tilemap.process_layer(my_map, "Background", TILE_SCALING)
-        """
         #setup background:
         if level == 1:
             arcade.set_background_color((109,205,247))
@@ -438,6 +421,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                                                                  self.coin_list)
             if coin_hit_list:
                 self.comp_clue.show_clue = True
+                self.player_sprite.current_clues.append(self.comp_clue.get_clue())
                 self.comp_clue.update_clue_pos(self.view_bottom, self.view_left)
             if self.comp_clue.show_clue == False:
                 #update physics engine
@@ -480,11 +464,13 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                                     self.view_bottom, SCREEN_HEIGHT + self.view_bottom)
 
             #Check to advance level
-            #if(self.score == self.coinTotal):
-                #self.level += 1
+            if(self.score == self.coinTotal):
+                print("Collected all clues, Player's current clues are:")
+                print(self.player_sprite.current_clues)
+                self.level += 1
 
                 #Setup next level
-                #self.setup(self.level)
+                self.setup(self.level)
 
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
