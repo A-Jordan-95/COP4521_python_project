@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="75" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="1">
- <tileset firstgid="1" name="my_tiles" tilewidth="241" tileheight="128" tilecount="12" columns="0">
+<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="75" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" name="my_tiles" tilewidth="241" tileheight="128" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="../Images/cave_tile.png"/>
@@ -38,10 +38,18 @@
   <tile id="17">
    <image width="96" height="128" source="../Images/enemy_zombie_idle.png"/>
   </tile>
+  <tile id="18">
+   <image width="63" height="128" source="../Images/grey_door_with_lock.png"/>
+  </tile>
  </tileset>
  <layer id="3" name="Background" width="25" height="75">
   <data encoding="base64" compression="zlib">
    eAHVlNtqxDAMRPel3X72fnqjguAwWLLkxKEJZG1dRzMK+3rd8/wITMfOcjUmMI8x3zdMegcGaXzTOO5qS7hsnuVxfDMfex2Qd/cRI5s7i3mv7slvmvdun7vyq1rpPOT2pcEbbN0deXTgdXby0j6rGNonszsYNms2b4RDDNXRayK/x2dnBWPWQ3ej+cTQ2Kp9lneEm+1pB49oDvfv4un9R+dsn6Ma9XW1WuFJjKg+26fOPLKJMYpf4SNGxOMsDjFWe3W03MWDsz8Zg/uo8ujobzoRg7o97U4eVa3IsaLbWQziRf+fxGC+3Sszag3tFV1YH91Hc2U8oj5n/bv4nZ1rVk+tMg7RNzPrb/EqhvbK5tFcYmhM7dE3YzkzjsTozKb4tK/qw552jzhajDzM3vEQYwfH2a52cLqah+3I3t1aXa0F513tffD+2Ov1vLvPTtOHD7Gv3ofjEMN9ej7h+yOPTCvVWLlmNjEsL8PJ+mQxxchyNVblRowdHHSu/25XdetoVe1p2nAfI606uKP6CkZUN/JH/wfkccXMxB71Ux81tztt9uJ9lLOTh2PfjeG4s1N3qxpn9Z1c6j6rW9WKGNncnVilZyXHdPbX8F33yOc5Hme+xewxH7X6c274cYxfRGcHLA==
+  </data>
+ </layer>
+ <layer id="5" name="Doors" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eAHt0DEBAAAMwjA8zL/XGcAB6dkziQgQIECAAAECBAgQIECAAIEmcG16BAgQIECAAAECBAgQIDAj8CkjABQ=
   </data>
  </layer>
  <layer id="1" name="Platforms" width="25" height="75">

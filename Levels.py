@@ -15,6 +15,7 @@ class Level():#create inherited classes for each level in game and overload
         self.wall_list = None
         self.coin_list = None
         self.background_list = None
+        self.door_list = None
 
     def setup(self, map_path):
         #setup level information here:
@@ -23,6 +24,7 @@ class Level():#create inherited classes for each level in game and overload
         self.enemy_sprite_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
         self.coin_list = arcade.SpriteList()
+        self.door_list = arcade.SpriteList()
 
         #!-- Platform section --!
         #set up platforms:
@@ -41,6 +43,9 @@ class Level():#create inherited classes for each level in game and overload
         #set up enemies:
         self.enemy_sprite_list = arcade.tilemap.process_layer(self.map_object,"Enemies", TILE_SCALING)
 
+        #set up doors:
+        self.door_list = arcade.tilemap.process_layer(self.map_object, "Doors", TILE_SCALING)
+
     def get_walls(self):
         return self.wall_list
 
@@ -52,6 +57,9 @@ class Level():#create inherited classes for each level in game and overload
 
     def get_background(self):
         return self.background_list
+
+    def get_doors(self):
+        return self.door_list
 
 
 class Level1(Level):

@@ -282,6 +282,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.background_list = None
         self.player_list = None
         self.enemy_list = None
+        self.door_list = None
         self.player_sprite = None
         self.physics_engine = None
         self.view_bottom = 0
@@ -314,6 +315,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.wall_list = arcade.SpriteList()
         self.enemy_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList()
+        self.door_list = arcade.SpriteList()
 
         #setup player sprite:
         self.player_sprite = Player()
@@ -341,6 +343,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         #for background in self.levels[self.level].get_background(): self.background_list.append(background)
         self.background_list = self.levels[self.level].get_background()
 
+        self.door_list = self.levels[self.level].get_doors()
+
         self.coinTotal = len(self.coin_list)
 
         #setup background:
@@ -360,6 +364,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.background_list.draw()
         self.wall_list.draw()
         self.coin_list.draw()
+        self.door_list.draw()
         self.player_list.draw()
         self.enemy_list.draw()
         self.comp_clue.draw_clue()
@@ -464,13 +469,16 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                                     self.view_bottom, SCREEN_HEIGHT + self.view_bottom)
 
             #Check to advance level
-            if(self.score == self.coinTotal):
-                print("Collected all clues, Player's current clues are:")
-                print(self.player_sprite.current_clues)
-                self.level += 1
+            door_hit_list = arcade.check_for_collision_with_list(self.player_sprite,
+                                                                 self.door_list)
+            if door_hit_list:
+                if(self.score == self.coinTotal):
+                    print("Collected all clues, Player's current clues are:")
+                    print(self.player_sprite.current_clues)
+                    self.level += 1
 
-                #Setup next level
-                self.setup(self.level)
+                    #Setup next level
+                    self.setup(self.level)
 
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
