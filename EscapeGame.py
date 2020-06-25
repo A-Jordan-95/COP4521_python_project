@@ -273,7 +273,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
 
 def main():
     game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
-    start_view = StartView()
+    start_view = start.StartView()
     game_window.show_view(start_view)
     start_view.setup()
     arcade.run()
