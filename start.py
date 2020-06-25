@@ -1,5 +1,10 @@
-
+import arcade
+from EscapeGame import MyGame 
 #Start of new code TextButtons and StartView
+SCREEN_TITLE = "Escape The Hacker's Lair"
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 650
+ 
 class TextButton:
     """ Text-based button """
     def __init__(self,
