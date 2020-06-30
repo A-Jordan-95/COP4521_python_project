@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="75" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" name="my_tiles" tilewidth="241" tileheight="128" tilecount="13" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../Images/cave_tile.png"/>
+  </tile>
+  <tile id="4">
+   <image width="129" height="128" source="../Images/caveSpikes.png"/>
+  </tile>
+  <tile id="5">
+   <image width="129" height="128" source="../Images/caveSpikesLeft.png"/>
+  </tile>
+  <tile id="6">
+   <image width="129" height="128" source="../Images/caveSpikesRight.png"/>
+  </tile>
+  <tile id="7">
+   <image width="129" height="128" source="../Images/caveSpikesTop.png"/>
+  </tile>
+  <tile id="11">
+   <image width="99" height="128" source="../Images/tower.png"/>
+  </tile>
+  <tile id="12">
+   <image width="241" height="128" source="../Images/keyboard.png"/>
+  </tile>
+  <tile id="13">
+   <image width="119" height="128" source="../Images/monitor.png"/>
+  </tile>
+  <tile id="14">
+   <image width="231" height="128" source="../Images/mouse.png"/>
+  </tile>
+  <tile id="15">
+   <image width="74" height="116" source="../Images/robot.png"/>
+  </tile>
+  <tile id="16">
+   <image width="96" height="128" source="../Images/enemy_robot_idle.png"/>
+  </tile>
+  <tile id="17">
+   <image width="96" height="128" source="../Images/enemy_zombie_idle.png"/>
+  </tile>
+  <tile id="18">
+   <image width="63" height="128" source="../Images/grey_door_with_lock.png"/>
+  </tile>
+ </tileset>
+ <layer id="3" name="Background" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eAHVlNtqxDAMRPel3X72fnqjguAwWLLkxKEJZG1dRzMK+3rd8/wITMfOcjUmMI8x3zdMegcGaXzTOO5qS7hsnuVxfDMfex2Qd/cRI5s7i3mv7slvmvdun7vyq1rpPOT2pcEbbN0deXTgdXby0j6rGNonszsYNms2b4RDDNXRayK/x2dnBWPWQ3ej+cTQ2Kp9lneEm+1pB49oDvfv4un9R+dsn6Ma9XW1WuFJjKg+26fOPLKJMYpf4SNGxOMsDjFWe3W03MWDsz8Zg/uo8ujobzoRg7o97U4eVa3IsaLbWQziRf+fxGC+3Sszag3tFV1YH91Hc2U8oj5n/bv4nZ1rVk+tMg7RNzPrb/EqhvbK5tFcYmhM7dE3YzkzjsTozKb4tK/qw552jzhajDzM3vEQYwfH2a52cLqah+3I3t1aXa0F513tffD+2Ov1vLvPTtOHD7Gv3ofjEMN9ej7h+yOPTCvVWLlmNjEsL8PJ+mQxxchyNVblRowdHHSu/25XdetoVe1p2nAfI606uKP6CkZUN/JH/wfkccXMxB71Ux81tztt9uJ9lLOTh2PfjeG4s1N3qxpn9Z1c6j6rW9WKGNncnVilZyXHdPbX8F33yOc5Hme+xewxH7X6c274cYxfRGcHLA==
+  </data>
+ </layer>
+ <layer id="5" name="Doors" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eAHt0DEBAAAMwjA8zL/XGcAB6dkziQgQIECAAAECBAgQIECAAIEmcG16BAgQIECAAAECBAgQIDAj8CkjABQ=
+  </data>
+ </layer>
+ <layer id="1" name="Platforms" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eAHllNtuwzAMQ9s/76cvGnoATqBsK3E6DBMwSKJ4cfqw5+PxeH7g74i4rXj/bQGHcZUR+Jk6dK+sI8N15epdcZ3DP/4Uixltxt0e3Krwzxn4Z23e8VX+e/5+9zH/6PDp6NijO0zvszn0Ws4PjK78M/Munyob/+gr1eXjiY79jn4lA61290bu7jbDQquV97jh725Zq9wZX7Wak/GdO+9znt33qodqXQaY8lTfnfHr6oKPVrvz4e5uI8zpAnPluI53BSOjesMVb7RksEev8ipctW52GeRwozv9ClbpA9fKu95mc5Ux03XuVzJWtau8zrsz9z9mnP3ms7r8m4/2WUbcr9Yso/Lv6DrcKm+GuwyH4RO3lVLeyM95wV/p6OGyn+nhoeX2jCl/x8x33JWzy9/56Ju562/Cna63mCs889hdRr7B0Q5npaOruHHXyrveqnmWUekCR6vd8bm72wwLrVbeuXUzKh/8XO9mOI8ZdiXj0L4qf/XVueI7PPxHGao5k4H/7gz11XnlvQe//b9BfVfm38qIXFcV7riKue8Ac121qzM+jh83rbzrbTST0dGjGfnqrctX7er8FzJW3ug4gVXl+BUX3GlGGeg6vcrYmTPK2JUzy+A+ylMOs/6WDtP7ypzz3Z6xFd8OZ8d3zPI6Gfl7815ldTPg0ytfxWdcvcesxa4cvTPP7vCu9E9mkHVX/wLMIw2F
+  </data>
+ </layer>
+ <layer id="2" name="Coins" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eAHt0MEJADAIA0AHaO3+23YGwYfg+Q6SXISrCJxKWJYAAQIECCwSeIu2mkqAAAEC8wRyXiWNCBAgQIAAAQIECBAgQKBR4Db+qrz6eYkANw==
+  </data>
+ </layer>
+ <layer id="4" name="Enemies" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eAHt18ENABAMBVAjYP9hDcBJolGee6N9PfBLcXYF+m5horqWqFetEiBAgMCbAvXNsUxFgACBcAF/+3DytBf+kHXTLkfjBAgcF5A/jhO7gAABAtcJyErXrWRqaJVRIt/sAdW9AJo=
+  </data>
+ </layer>
+</map>

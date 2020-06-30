@@ -1,0 +1,51 @@
+
+Project Title: "Escape the Evil Hacker's Lair"
+
+Team Members:
+ - Alexander Jordan
+ - Paul Santora
+ - Jacob Petrillo
+ - Nicholas Ford
+ - Nathan Granger
+
+What we Hope to Acheive:
+  Our project will be a 2D game with a graphical user interface which has an
+escape theme. The setting will be in a cave and will require the player to find
+hidden pieces of a computer in order to solve a quick question about python syntax
+in order to unlock the next level. The player will also have to avoid robots
+that can kill them. The game will be built using the arcade library framework.
+
+Division of work:
+ < Nick  - Work on menus and transition screens, level design, and other gameplay elements >
+ < Paul  - Graphics and implementation of them; also level design? >
+ < Alex  - graphics drawing/gathering; game physics programming; game rules implementation >
+ < Jacob - Map/level design, graphics drawing/input, game physics>
+ < Nathan - menus/transition screens, building sprites into game, game rules>
+
+Arcade Library documentation can be found here: ------------------------------------
+  https://arcade.academy/
+
+Arcade Library's License:
+
+Copyright (c) 2020 Paul Vincent Craven
+
+The Arcade library is licensed under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in the
+Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
