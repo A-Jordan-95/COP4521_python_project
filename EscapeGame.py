@@ -5,6 +5,7 @@ import os
 import start
 import Levels
 import ComputerClue
+import PauseMenu
 
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
@@ -166,6 +167,10 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         if key == arcade.key.ENTER:
             if self.comp_clue.show_clue:
                 self.comp_clue.exit_clue()
+
+        # pause game
+        if key == arcade.key.P:
+            self.window.show_view(PauseMenu.PauseMenu(self))
 
     def on_key_release(self, key, modifiers: int):
         if key == arcade.key.UP:
