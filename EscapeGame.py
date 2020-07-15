@@ -265,11 +265,17 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
                 self.game_over = True
 
-        #!--Game Over --!
+        '''!--Game Over OLD --!
         else:
             self.setup(self.level)
+            self.game_over = False'''
+        
+        # !--Game Over --!
+        else:
+            view = GameOverView()
+            game_window.show_view(view)
+            view.setup()
             self.game_over = False
-
 
 def main():
     game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
