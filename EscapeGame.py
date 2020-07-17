@@ -7,6 +7,7 @@ import DBSetup
 from logIn import logIn
 import UpdateScores
 import start
+import gameOver
 import Levels
 import ComputerClue
 
