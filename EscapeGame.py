@@ -14,6 +14,7 @@ import ComputerClue
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
+game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
 CHARACTER_SCALING = 0.75
 TILE_SCALING = 0.5
@@ -292,7 +293,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
 def main():
     login = logIn()
     login.get_user()
-    game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     start_view = start.StartView()
     game_window.show_view(start_view)
     start_view.setup()
