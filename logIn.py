@@ -16,26 +16,34 @@ class logIn():
                 self.get_password()
 
     def make_new_user(self):
-        pass_one = sha256_crypt.encrypt('1')
-        pass_two = sha256_crypt.encrypt('2')
-        while sha256_crypt.verify(pass_one) != sha256_crypt.verify(pass_two):
-            pass_one = sha256_crypt.encrypt(input("Enter a password: "))
-            pass_two = sha256_crypt.encrypt(input("Re-enter the password for confirmation: "))
-            if sha256_crypt.verify(pass_one) != sha256_crypt.verify(pass_two):
+        pass_one = '1'
+        pass_two = '2'
+        while pass_one != pass_two:
+            pass_one = input("Enter a password: ")
+            pass_two = input("Re-enter the password for confirmation: ")
+            if pass_one != pass_two:
                 print("Passwords did not match, please try again.")
-        self.password = pass_one
+        password = pass_one
+        encrypted_password = sha256_crypt.hash(password)
+        #delete password variables from memory to increase security:
+        del pass_one
+        del pass_two
+        del password
         with sql.connect("EscapeGame.db") as con:
             cur = con.cursor()
-            cur.execute("INSERT INTO Users(Username, Password) VALUES(?,?)", (self.user, self.password))
+            cur.execute("INSERT INTO Users(Username, Password) VALUES(?,?)", (self.user, encrypted_password))
             con.commit()
 
     def get_password(self):
-        with sql.connect("escapeGame.db") as con:
+        with sql.connect("EscapeGame.db") as con:
             cur = con.cursor()
             cur.execute("SELECT Password FROM Users Where username=?", (self.user,))
-            self.password = cur.fetchall()
-            print(self.password) 
-            while sha256_crypt.verify(self.password) != input("Enter your password: "):
-                print("Incorrect password, please try again.")
+            #unpack list of tuple of password hash to verify against user input:
+            (encrypted_password,) = cur.fetchall()[0]
+            # check user entered password against 
+            verified = sha256_crypt.verify(input("Enter your password: "), encrypted_password)
+            while not verified:
+                print("incorrect password please try again: ")
+                verified = sha256_crypt.verify(input("Enter your password: "), encrypted_password)
             # at this point user is "logged-in", can use 'self.user' variable
             # as key for inserting scores into HighScores table

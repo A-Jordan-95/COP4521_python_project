@@ -280,11 +280,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
                 self.game_over = True
-
-        '''!--Game Over OLD --!
-        else:
-            self.setup(self.level)
-            self.game_over = False'''
         
         # !--Game Over --!
         else:
