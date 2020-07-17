@@ -13,14 +13,16 @@ conn.commit()
 
 conn.execute(""" 
     CREATE TABLE IF NOT EXISTS HighScores(
-        Username TEXT NOT NULL UNIQUE REFERENCES Users.Username,
+        Username TEXT NOT NULL UNIQUE,
         Lev1_score FLOAT,
         lev2_score FLOAT,
         Lev3_score FLOAT,
         Lev4_score FLOAT,
         lev5_score FLOAT,
-        Overall FLOAT)
+        Overall FLOAT,
+        FOREIGN KEY (Username)
+            REFERENCES Users (Username))
     """)
 conn.commit()
-print("database setup properly, closing connnection...")
+print("database setup properly, closing connection...")
 conn.close()

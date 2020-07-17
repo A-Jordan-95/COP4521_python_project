@@ -5,6 +5,7 @@ from time import perf_counter
 #user defined classes:
 import DBSetup
 from logIn import logIn
+import UpdateScores
 import start
 import Levels
 import ComputerClue
@@ -269,7 +270,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                     print(self.player_sprite.current_clues)
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
-                    #update High Scores in database
+                    #update High Scores in database here
                     self.level += 1
 
                     #Setup next level
