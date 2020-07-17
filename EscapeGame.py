@@ -1,7 +1,10 @@
 import arcade
 import os
+from time import perf_counter
 
 #user defined classes:
+import DBSetup
+from logIn import logIn
 import start
 import Levels
 import ComputerClue
@@ -77,6 +80,11 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.right_pressed = False
         self.up_pressed = False
         self.down_pressed = False
+
+        #for keeping score:
+        self.first_draw_of_level = True
+        self.time_start = None
+        self.time_stop = None
 
         #Determines map
         self.level = 0
@@ -154,6 +162,9 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         score_text = f"Computer pieces found: {self.score} / {self.coinTotal}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
+        if self.first_draw_of_level:
+            self.time_start = perf_counter()
+            self.first_draw_of_level = False
 
     def on_key_press(self, key, modifiers: int):
         if key == arcade.key.UP:
@@ -256,9 +267,13 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                 if(self.score == self.coinTotal):
                     print("Collected all clues, Player's current clues are:")
                     print(self.player_sprite.current_clues)
+                    self.time_stop = perf_counter()
+                    self.levels[self.level].score = self.time_stop - self.time_start
+                    #update High Scores in database
                     self.level += 1
 
                     #Setup next level
+                    self.first_draw_of_level = True #reset variable that triggers timer to start
                     self.setup(self.level)
 
             #check for player hitting enemy:
@@ -278,6 +293,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             self.game_over = False
 
 def main():
+    login = logIn()
+    login.get_user()
     game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     start_view = start.StartView()
     game_window.show_view(start_view)

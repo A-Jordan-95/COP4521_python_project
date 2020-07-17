@@ -66,6 +66,7 @@ class Level1(Level):
     def __init__(self):
         self.map_object = None
         super().__init__()
+        self.score = None
 
 
     def setup(self):
@@ -77,6 +78,7 @@ class Level2(Level):
     def __init__(self):
         self.map_object = None
         super().__init__()
+        self.score = None
 
     def setup(self):
         super().setup("maps/cave_2.tmx")
@@ -88,6 +90,7 @@ class Level3(Level):
     def __init__(self):
         self.map_object = None
         super().__init__()
+        self.score = None
 
     def setup(self):
         super().setup("your map path here")
@@ -98,6 +101,7 @@ class Level4(Level):
     def __init__(self):
         self.map_object = None
         super().__init__()
+        self.score = None
 
     def setup(self):
         super().setup("your map path here")
@@ -108,6 +112,7 @@ class Level5(Level):
     def __init__(self):
         self.map_object = None
         super().__init__()
+        self.score = None
 
     def setup(self):
         super().setup("your map path here")
