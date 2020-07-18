@@ -68,11 +68,13 @@ class Level1(Level):
         super().__init__()
         self.score = None
 
-
     def setup(self):
         super().setup("maps/cave_1.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 2 #set speed of enemies
+            enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+
 
 class Level2(Level):
     def __init__(self):
@@ -83,7 +85,15 @@ class Level2(Level):
     def setup(self):
         super().setup("maps/cave_2.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+            if ("Ball" in enemy.texture.name.split("-")[0]):
+                enemy.change_x = 4
+            elif ("Yeti" in enemy.texture.name.split("-")[0]):
+                enemy.change_x = 3
+            else:
+                enemy.change_x = 2
+
 
 class Level3(Level):
     def __init__(self):
@@ -95,6 +105,9 @@ class Level3(Level):
         super().setup("maps/cave_3.tmx")
         for enemy in self.enemy_sprite_list:
             enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+
 
 class Level4(Level):
     def __init__(self):
@@ -106,6 +119,9 @@ class Level4(Level):
         super().setup("maps/cave_4.tmx")
         for enemy in self.enemy_sprite_list:
             enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+
 
 class Level5(Level):
     def __init__(self):
@@ -117,6 +133,8 @@ class Level5(Level):
         super().setup("maps/cave_5.tmx")
         for enemy in self.enemy_sprite_list:
             enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
 
 
 lev1 = Level1()
