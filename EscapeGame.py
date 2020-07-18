@@ -24,10 +24,10 @@ PLAYER_MOVEMENT_SPEED = 10
 GRAVITY = 0.75
 PLAYER_JUMP_SPEED = 20
 
-LEFT_VIEWPORT_MARGIN = 250
-RIGHT_VIEWPORT_MARGIN = 250
-BOTTOM_VIEWPORT_MARGIN = 100
-TOP_VIEWPORT_MARGIN = 100
+LEFT_VIEWPORT_MARGIN = 300
+RIGHT_VIEWPORT_MARGIN = 300
+BOTTOM_VIEWPORT_MARGIN = 150
+TOP_VIEWPORT_MARGIN = 150
 
 TEXTURE_FACING_LEFT = 1
 TEXTURE_FACING_RIGHT = 0
@@ -212,7 +212,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                 if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
                     #reverse if hit wall
                     enemy.change_x *= -1
-
 
             #check for coins collected
             coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite,
