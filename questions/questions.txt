@@ -15,7 +15,7 @@ W1:20.25
 W2:17
 W3:32
 
-Q2:What will the ouput of the code be below?
+Q2:What will the output of the code be below?
 str = "Hello World"
 myset = set(str)
 str[0] = "M"
@@ -32,7 +32,7 @@ W1:{'W', 'r', 'l', 'H', 'e', ' ', 'd', 'o'}
 W2:{'W', 'r', 'l', 'H', 'e', 'd', 'o'}
 W3:WrlHedo
 
-Q3:What is the ouput of the code below?
+Q3:What is the output of the code below?
 for x in range(10):
 	if(x == 10):
 		break
@@ -47,7 +47,7 @@ for x in range(10):
 Cl1:The range function returns a sequence of numbers starting from 0
 Cl2:In Python pass is a null statement, which results in no operation
 Cl3:The continue statement in Python returns to the beginning of a loop
-Cl4:A break statement workes just like the tradition break in C
+Cl4:A break statement works just like the tradition break in C
 
 A:Hi Bye Hi Hi Bye Hi Bye Hi
 W1:Hi Bye Hi Bye Hi Bye Hi Hi 
@@ -61,15 +61,15 @@ a = aClass
 a.obj = a
 del a
 
-Cl1:Python memory is managed by Python in a private heap space
+Cl1:Memory is managed by Python in a private heap space
 Cl2:Python objects and data structures are located in a private heap
 Cl3:Python has a built in garbage collector to free space in the heap
 Cl4:When an object has no references it is removed from memory
 
 A:The instance is deleted and the memory is then deleted by garbage collection
-W1:Both the instance and the memory are destroyed
-W2:A error occures for manually trying to delete the instance
-W3:The instance is no longer accessable, but not deleted in memory
+W1:Only the memory is deleted, but not the instance of the object
+W2:A error occurs for manually trying to delete the instance
+W3:The instance is no longer accessible, but not deleted in memory
 
 
 Q5:What is the output of the code below?
@@ -88,7 +88,7 @@ else:
 
 Cl1:A Class in Python is like an object constructor, or "blueprint" for objects
 Cl2:You would use the __init__() function to assign values to object properties
-Cl3:Methods in objects are functions that belond to the object
+Cl3:Methods in objects are functions that belong to the object
 Cl4:self is a keyword that references the current instance of a class
 
 A:I'll make a fool out of you
