@@ -86,6 +86,9 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         #computer clue info:
         self.comp_clue = None
 
+        # pause menu
+        self.pause_menu = None
+
     def setup(self, level):
         #setup sprite lists
         self.view_bottom = 0
@@ -137,6 +140,9 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.comp_clue = ComputerClue.ComputerClue()
         self.comp_clue.setup()
 
+        # set pause menu
+        self.pause_menu = PauseMenu.PauseMenu(self)
+
         ##setup physics engine:
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite,
                                                              self.wall_list,
@@ -170,7 +176,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
 
         # pause game
         if key == arcade.key.P:
-            self.window.show_view(PauseMenu.PauseMenu(self))
+            self.window.show_view(self.pause_menu)
+            self.pause_menu.set_menu_position(self.view_left, self.view_bottom)
 
     def on_key_release(self, key, modifiers: int):
         if key == arcade.key.UP:
