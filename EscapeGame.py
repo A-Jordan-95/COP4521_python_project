@@ -221,13 +221,17 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         #check if game over:
         if not self.game_over:
 
-
             #check state of enemy and adjust:
             for enemy in self.enemy_list:
                 if len(arcade.check_for_collision_with_list(enemy, self.wall_list)) > 0:
                     #reverse if hit wall
                     enemy.change_x *= -1
 
+                    #Flip sprite texture
+                    if (enemy.change_x < 0):
+                        enemy.texture = enemy.textures[TEXTURE_FACING_RIGHT]
+                    elif enemy.change_x > 0:
+                        enemy.texture = enemy.textures[TEXTURE_FACING_LEFT]
 
             #check for coins collected
             coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite,
@@ -239,6 +243,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             if self.comp_clue.show_clue == False:
                 #update physics engine
                 self.physics_engine.update()
+
                 #move enemies
                 self.enemy_list.update()
 
@@ -306,6 +311,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
 def main():
     login = logIn()
     login.get_user()
+    game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+    game_window.center_window()
     start_view = start.StartView()
     game_window.show_view(start_view)
     start_view.setup()

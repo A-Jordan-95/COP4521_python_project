@@ -33,15 +33,15 @@ class Level():#create inherited classes for each level in game and overload
                                                       scaling = TILE_SCALING)
         #!-- Coin section --!
         #setup coins and total:
-        self.coin_list = arcade.tilemap.process_layer(self.map_object,"Coins", TILE_SCALING)
+        self.coin_list = arcade.tilemap.process_layer(self.map_object, "Coins", TILE_SCALING)
 
 
         #!--Background section --!
         #setup background objects:
-        self.background_list = arcade.tilemap.process_layer(self.map_object,"Background", TILE_SCALING)
+        self.background_list = arcade.tilemap.process_layer(self.map_object, "Background", TILE_SCALING)
 
         #set up enemies:
-        self.enemy_sprite_list = arcade.tilemap.process_layer(self.map_object,"Enemies", TILE_SCALING)
+        self.enemy_sprite_list = arcade.tilemap.process_layer(self.map_object, "Enemies", TILE_SCALING)
 
         #set up doors:
         self.door_list = arcade.tilemap.process_layer(self.map_object, "Doors", TILE_SCALING)
@@ -68,11 +68,13 @@ class Level1(Level):
         super().__init__()
         self.score = None
 
-
     def setup(self):
         super().setup("maps/cave_1.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 2 #set speed of enemies
+            enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+
 
 class Level2(Level):
     def __init__(self):
@@ -83,8 +85,14 @@ class Level2(Level):
     def setup(self):
         super().setup("maps/cave_2.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 2
-
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+            if ("Ball" in enemy.texture.name.split("-")[0]):
+                enemy.change_x = 4
+            elif ("Yeti" in enemy.texture.name.split("-")[0]):
+                enemy.change_x = 3
+            else:
+                enemy.change_x = 2
 
 class Level3(Level):
     def __init__(self):
@@ -93,11 +101,12 @@ class Level3(Level):
         self.score = None
 
     def setup(self):
-        super().setup("maps/greenhouse.tmx")
+        super().setup("maps/cave_3.tmx")
         for enemy in self.enemy_sprite_list:
             enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
 
-"""
 class Level4(Level):
     def __init__(self):
         self.map_object = None
@@ -105,9 +114,12 @@ class Level4(Level):
         self.score = None
 
     def setup(self):
-        super().setup("your map path here")
+        super().setup("maps/cave_4.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 'your enemy speed here'
+            enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+
 
 class Level5(Level):
     def __init__(self):
@@ -116,14 +128,16 @@ class Level5(Level):
         self.score = None
 
     def setup(self):
-        super().setup("your map path here")
+        super().setup("maps/cave_5.tmx")
         for enemy in self.enemy_sprite_list:
-            enemy.change_x = 'your enemy speed here'
-"""
+            enemy.change_x = 2
+            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
+            enemy.textures.append(texture)
+
 
 lev1 = Level1()
 lev2 = Level2()
 lev3 = Level3()
-#lev4 = Level4()
-#lev5 = Level5()
-level_list = [lev1, lev2, lev3]
+lev4 = Level4()
+lev5 = Level5()
+level_list = [lev1, lev2, lev3, lev4, lev5]
