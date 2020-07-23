@@ -94,7 +94,6 @@ class Level2(Level):
             else:
                 enemy.change_x = 2
 
-
 class Level3(Level):
     def __init__(self):
         self.map_object = None
@@ -107,7 +106,6 @@ class Level3(Level):
             enemy.change_x = 2
             texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
             enemy.textures.append(texture)
-
 
 class Level4(Level):
     def __init__(self):

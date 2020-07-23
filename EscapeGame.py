@@ -7,12 +7,15 @@ import DBSetup
 from logIn import logIn
 import UpdateScores
 import start
+import gameOver
 import Levels
 import ComputerClue
+import PauseMenu
 
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
+game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
 CHARACTER_SCALING = 0.75
 TILE_SCALING = 0.5
@@ -93,6 +96,9 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
 
         #computer clue info:
         self.comp_clue = None
+        
+        # pause menu
+        self.pause_menu = None
 
     def setup(self, level):
         #setup sprite lists
@@ -144,6 +150,9 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         #setup Computer Clue system:
         self.comp_clue = ComputerClue.ComputerClue()
         self.comp_clue.setup()
+        
+        # set pause menu
+        self.pause_menu = PauseMenu.PauseMenu(self)
 
         ##setup physics engine:
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite,
@@ -178,6 +187,12 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         if key == arcade.key.ENTER:
             if self.comp_clue.show_clue:
                 self.comp_clue.exit_clue()
+                
+        # pause game
+        if key == arcade.key.P:
+            self.window.show_view(self.pause_menu)
+            self.pause_menu.set_menu_position(self.view_left, self.view_bottom)
+            
 
     def on_key_release(self, key, modifiers: int):
         if key == arcade.key.UP:
