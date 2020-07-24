@@ -1,8 +1,14 @@
 # Pause Menu
-
+from time import sleep
 import arcade
+print("inside PauseMenu.py: imported arcade")
+sleep(2)
 import start
+print("inside PauseMenu.py: imported start")
+sleep(2)
 import EscapeGame
+print("inside PauseMenu.py: imported EscapeGame")
+sleep(2)
 
 WIDTH = 1000
 HEIGHT = 650
@@ -11,16 +17,13 @@ class PauseMenu(arcade.View):
     def __init__(self, game_view): #{
         super().__init__()
         self.game_view = game_view
-        self.pause_box = arcade.Sprite("images/pause_background.png", 1.2, 
+        self.pause_box = arcade.Sprite("Images/pause_background.png", 1.2, 
             center_x=WIDTH/2, center_y=HEIGHT/2)
-        self.control_image = arcade.Sprite("images/Controls_Display.png", 1.1, 
+        self.control_image = arcade.Sprite("Images/Controls_Display.png", 1.1, 
             center_x=WIDTH/2, center_y=HEIGHT/2)
         
         # pause menu title ---------- +
-        self.title = arcade.draw_text("P A U S E   M E N U", 
-            WIDTH/2, HEIGHT/2, 
-            arcade.color.WHITE, font_size = 57, 
-            anchor_x = "center")
+        self.title = arcade.draw_text("P A U S E   M E N U", WIDTH/2, HEIGHT/2, arcade.color.WHITE, font_size = 57, anchor_x = "center")
         # --------------------------- +
 
         # menu options -------------- +

@@ -1,5 +1,10 @@
+from time import sleep
 import arcade
+print("inside start.py: imported arcade")
+sleep(2)
 from EscapeGame import MyGame 
+print("inside start.py: from EscapeGame imported MyGame ")
+sleep(2)
 #Start of new code TextButtons and StartView
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
