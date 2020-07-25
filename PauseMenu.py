@@ -1,14 +1,6 @@
 # Pause Menu
 from time import sleep
 import arcade
-print("inside PauseMenu.py: imported arcade")
-sleep(2)
-import start
-print("inside PauseMenu.py: imported start")
-sleep(2)
-import EscapeGame
-print("inside PauseMenu.py: imported EscapeGame")
-sleep(2)
 
 WIDTH = 1000
 HEIGHT = 650
@@ -23,7 +15,10 @@ class PauseMenu(arcade.View):
             center_x=WIDTH/2, center_y=HEIGHT/2)
         
         # pause menu title ---------- +
-        self.title = arcade.draw_text("P A U S E   M E N U", WIDTH/2, HEIGHT/2, arcade.color.WHITE, font_size = 57, anchor_x = "center")
+        self.title = arcade.draw_text("P A U S E   M E N U", 
+            WIDTH/2, HEIGHT/2, 
+            arcade.color.WHITE, font_size = 57, 
+            anchor_x = "center")
         # --------------------------- +
 
         # menu options -------------- +
@@ -113,10 +108,11 @@ class PauseMenu(arcade.View):
         # resume game
         if key == arcade.key.P:
             self.window.show_view(self.game_view)
-
+        
         # quit to the title screen
         elif key == arcade.key.Q:
-            start_view = start.StartView()
+            from start import StartView
+            start_view = StartView()
             self.window.show_view(start_view)
             start_view.setup()
             arcade.run()
