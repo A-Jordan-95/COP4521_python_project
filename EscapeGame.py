@@ -9,9 +9,6 @@ print("inside EscapeGame.py: imported DBSetup")
 from logIn import logIn
 print("inside EscapeGame.py: from logIn imported logIn")
 
-import UpdateScores
-print("inside EscapeGame.py: imported UpdateScores")
-
 import start
 print("inside EscapeGame.py: imported start")
 
@@ -31,7 +28,6 @@ print("inside EscapeGame.py: imported PauseMenu")
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
-# game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
 CHARACTER_SCALING = 0.75
 TILE_SCALING = 0.5
@@ -302,8 +298,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                                                                  self.door_list)
             if door_hit_list:
                 if(self.score == self.coinTotal):
-                    print("Collected all clues, Player's current clues are:")
-                    print(self.player_sprite.current_clues)
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
                     print(f"time to finish level {self.level+1}: {self.levels[self.level].score} seconds")

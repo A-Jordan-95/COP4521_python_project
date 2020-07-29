@@ -18,8 +18,6 @@ class ComputerClue():
         self.clue_sprite_list.append(self.clue_sprite)
 
     def parse_clues(self, level):
-        print("parsing clues...")
-        print(f"level = {level}")
         f = open("questions/questions.txt", "r")
         clues = []
         if level == 0:
@@ -31,7 +29,6 @@ class ComputerClue():
                         line = f.readline()
                     clues = [f.readline() for x in range(3)]
                     clues.insert(0, line)
-                    print(clues)
 
         elif level == 1:
             for line in f:
@@ -42,7 +39,7 @@ class ComputerClue():
                         line = f.readline()
                     clues = [f.readline() for x in range(3)]
                     clues.insert(0, line)
-                    print(clues)
+            
 
         elif level == 2:
             for line in f:
@@ -53,7 +50,7 @@ class ComputerClue():
                         line = f.readline()
                     clues = [f.readline() for x in range(3)]
                     clues.insert(0, line)
-                    print(clues)
+                   
 
         elif level == 3:
             for line in f:
@@ -64,7 +61,7 @@ class ComputerClue():
                         line = f.readline()
                     clues = [f.readline() for x in range(3)]
                     clues.insert(0, line)
-                    print(clues)
+                 
 
         elif level == 4:
             for line in f:
@@ -75,7 +72,7 @@ class ComputerClue():
                         line = f.readline()
                     clues = [f.readline() for x in range(3)]
                     clues.insert(0, line)
-                    print(clues)
+                
         return clues
 
     def update_clue_pos(self, view_bottom, view_left):
