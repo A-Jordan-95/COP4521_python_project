@@ -9,15 +9,74 @@ class ComputerClue():
         self.clues = None #list of strings(each string being a clue) passed to setup function
         self.clue_pos = 0
 
-    def setup(self, clues = None):
+    def setup(self, level):
         self.clue_sprite_list = arcade.SpriteList()
-        if clues:
-            self.clues = clues
-        else: # for testing purposes
-            self.clues = ["clue 1", "clue 2", "clue 3", "clue 4"]
+        
+        self.clues = self.parse_clues(level)
 
         self.clue_sprite = arcade.Sprite("Images/clue_window.png", 1.0)
         self.clue_sprite_list.append(self.clue_sprite)
+
+    def parse_clues(self, level):
+        print("parsing clues...")
+        print(f"level = {level}")
+        f = open("questions/questions.txt", "r")
+        clues = []
+        if level == 0:
+            for line in f:
+                if "Q1" not in line:
+                    continue 
+                else:
+                    while "Cl1" not in line:
+                        line = f.readline()
+                    clues = [f.readline() for x in range(3)]
+                    clues.insert(0, line)
+                    print(clues)
+
+        elif level == 1:
+            for line in f:
+                if "Q2" not in line:
+                    continue 
+                else:
+                    while "Cl1" not in line:
+                        line = f.readline()
+                    clues = [f.readline() for x in range(3)]
+                    clues.insert(0, line)
+                    print(clues)
+
+        elif level == 2:
+            for line in f:
+                if "Q3" not in line:
+                    continue 
+                else:
+                    while "Cl1" not in line:
+                        line = f.readline()
+                    clues = [f.readline() for x in range(3)]
+                    clues.insert(0, line)
+                    print(clues)
+
+        elif level == 3:
+            for line in f:
+                if "Q4" not in line:
+                    continue 
+                else:
+                    while "Cl1" not in line:
+                        line = f.readline()
+                    clues = [f.readline() for x in range(3)]
+                    clues.insert(0, line)
+                    print(clues)
+
+        elif level == 4:
+            for line in f:
+                if "Q5" not in line:
+                    continue 
+                else:
+                    while "Cl1" not in line:
+                        line = f.readline()
+                    clues = [f.readline() for x in range(3)]
+                    clues.insert(0, line)
+                    print(clues)
+        return clues
 
     def update_clue_pos(self, view_bottom, view_left):
         self.clue_sprite_list[0].center_x = view_left + 500
