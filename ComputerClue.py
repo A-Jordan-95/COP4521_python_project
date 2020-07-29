@@ -85,8 +85,32 @@ class ComputerClue():
 
     def draw_clue(self):
         if self.show_clue:
+            words_in_clue = [wrd for wrd in self.clues[self.clue_pos].split()]
+            line1 = ''
+            line2 = ''
+            line3 = ''
+            line4 = ''
+            for x in range (0, len(words_in_clue)):
+                if x <= 3:
+                    line1 += words_in_clue[x]
+                    line1 += ' '
+                elif x <= 7:
+                    line2 += words_in_clue[x]
+                    line2 += ' '
+                elif x <= 11:
+                    line3 += words_in_clue[x]
+                    line3 += ' '
+                elif x <= 15:
+                    line4 += words_in_clue[x]
+                    line4 += ' '
             self.clue_sprite_list.draw()
-            arcade.draw_text(self.clues[self.clue_pos], self.clue_sprite_list[0].center_x - 40, self.clue_sprite_list[0].center_y,
+            arcade.draw_text(line1, self.clue_sprite_list[0].center_x - 220, self.clue_sprite_list[0].center_y + 70,
+            arcade.csscolor.WHITE, 18)
+            arcade.draw_text(line2, self.clue_sprite_list[0].center_x - 220, self.clue_sprite_list[0].center_y + 40,
+            arcade.csscolor.WHITE, 18)
+            arcade.draw_text(line3, self.clue_sprite_list[0].center_x - 220, self.clue_sprite_list[0].center_y + 10,
+            arcade.csscolor.WHITE, 18)
+            arcade.draw_text(line4, self.clue_sprite_list[0].center_x - 220, self.clue_sprite_list[0].center_y - 20,
             arcade.csscolor.WHITE, 18)
             arcade.draw_text("Press Enter to close the clue.", self.clue_sprite_list[0].center_x - 200, self.clue_sprite_list[0].center_y - 100,
             arcade.csscolor.WHITE, 18)
