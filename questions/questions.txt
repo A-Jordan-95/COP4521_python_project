@@ -25,7 +25,7 @@ print(myset)
 Cl1: A list in Python is an ordered sequence of elements that is mutable
 Cl2: A set in Python is a mutable collection of data types with no duplicates
 Cl3: A tuple is a collection that is ordered and immutable
-Cl4 :A string in Python is immutable, but you could re-assign the variable
+Cl4: A string in Python is immutable, but you could re-assign the variable
 
 A: TypeErrorL 'str' object does not support item assignment
 W1: {'W', 'r', 'l', 'H', 'e', ' ', 'd', 'o'}

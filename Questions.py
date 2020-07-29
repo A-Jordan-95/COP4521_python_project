@@ -1,7 +1,10 @@
-class Questions(object):
+class QuestionCreation(object):
     def __init__(self):
         super().__init__()
         self.masterList = []
+        self.questions = []
+        self.clues = []
+        self.answers = []
 
     def replacedelim(self, text, dic):
         for i, j in dic.items():
@@ -50,6 +53,35 @@ class Questions(object):
             counter += 1
         self.masterList = [question1, question2, question3, question4, question5]
 
-    def showlist(self):
-        for x in self.masterList:
-            print(x)
+    def splitQuestions(self, level):
+        if level == 0:
+            return [6, 10, 14]
+        if level == 1:
+            return [6, 10, 14]
+        if level == 2:
+            return [11, 15, 19]
+        if level == 3:
+            return [6, 10, 14]
+        return [13, 17, 21]
+
+
+    def createQuestions(self):
+        for level in range (0, 5):
+            counter = 0
+            q = []
+            c = []
+            a = []
+            lineParse = self.splitQuestions(level)
+            for x in self.masterList[level]:
+                if counter < lineParse[0]:
+                    q.append(x)
+                elif counter < lineParse[1]:
+                    c.append(x)
+                elif counter < lineParse[2]:
+                    a.append(x)
+                counter += 1
+            self.questions.append(q)
+            self.clues.append(c)
+            self.answers.append(a)
+
+

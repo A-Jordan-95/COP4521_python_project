@@ -12,7 +12,7 @@ from gameOver import GameOverView
 import Levels
 import ComputerClue
 import PauseMenu
-from Questions import Questions
+from Questions import QuestionCreation
 
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
@@ -96,9 +96,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.levels = None
 
         #computer clue info:
-        self.questions = Questions()
-        self.questions.createlist()
-        self.questions.showlist()
+        self.comp_clue = None
+        self.questObj = QuestionCreation()
         
         # pause menu
         self.pause_menu = None
@@ -115,6 +114,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.enemy_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList()
         self.door_list = arcade.SpriteList()
+        self.questionAsked = False
 
         #setup player sprite:
         self.player_sprite = Player()
@@ -151,8 +151,11 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             arcade.set_background_color((109,205,247))
 
         #setup Computer Clue system:
+        self.questObj.createlist()
+        self.questObj.createQuestions()
+
         self.comp_clue = ComputerClue.ComputerClue()
-        self.comp_clue.setup(self.level)
+        self.comp_clue.setup(self.questObj.questions[level], self.questObj.clues[level], self.questObj.answers[level])
         
         # set pause menu
         self.pause_menu = PauseMenu.PauseMenu(self)
@@ -188,6 +191,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         if key == arcade.key.LEFT:
             self.left_pressed = True
         if key == arcade.key.ENTER:
+            if self.comp_clue.show_question:
+                self.comp_clue.exit_clue()
             if self.comp_clue.show_clue:
                 self.comp_clue.exit_clue()
                 
@@ -246,7 +251,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             if self.comp_clue.show_clue == False:
                 #update physics engine
                 self.physics_engine.update()
-
                 #move enemies
                 self.enemy_list.update()
 
@@ -287,18 +291,34 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             #Check to advance level
             door_hit_list = arcade.check_for_collision_with_list(self.player_sprite,
                                                                  self.door_list)
-            if door_hit_list:
+            if door_hit_list and not self.questionAsked:
                 if(self.score == self.coinTotal):
                     print("Collected all clues, Player's current clues are:")
-                    print(self.player_sprite.current_clues)
+                    counter = 1
+                    for clue in self.player_sprite.current_clues:
+                        print(str(counter) + ': '+ clue)
+                        counter += 1
+                    print("\nQuestion:")
+                    for text in self.comp_clue.questions:
+                        print(text)
+                    print("\nAnswers: ")
+                    counter = 1
+                    for answers in self.comp_clue.answers:
+                        print(str(counter) + ": " + answers)
+                        counter += 1
+
+                    self.comp_clue.show_question = True
+                    self.comp_clue.update_clue_pos(self.view_bottom, self.view_left)
+                    self.questionAsked = True
+
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
                     #update High Scores in database here
-                    self.level += 1
+                    #self.level += 1
 
                     #Setup next level
-                    self.first_draw_of_level = True #reset variable that triggers timer to start
-                    self.setup(self.level)
+                    #self.first_draw_of_level = True #reset variable that triggers timer to start
+                    #self.setup(self.level)
 
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
