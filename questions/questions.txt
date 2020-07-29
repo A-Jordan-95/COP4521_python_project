@@ -1,38 +1,38 @@
-Q1:If the user input is "4.5" what is the output?
+Q1: If the user input is "4.5" what is the output?
 import math
 num = int(input("Enter a number: "))
 num = num**num+1
 num = math.sqrt(num)
 print(int(num))
 
-Cl1:Python has the in-built function input that takes the input from a user
-Cl2:Casting a number to an int will truncate the decimal of a float
-Cl3:A standard module in Python is math
-Cl4:Using the math module you can take a square root of a number
+Cl1: Python has the in-built function input that takes the input from a user
+Cl2: Casting a number to an int will truncate the decimal of a float
+Cl3: A standard module in Python is math
+Cl4: Using the math module you can take a square root of a number
 
-A:16
-W1:20.25
-W2:17
-W3:32
+A: 16
+W1: 20.25
+W2: 17
+W3: 32
 
-Q2:What will the output of the code be below?
+Q2: What will the output of the code be below?
 str = "Hello World"
 myset = set(str)
 str[0] = "M"
 myset = set(str)
 print(myset)
 
-Cl1:A list in Python is an ordered sequence of elements that is mutable
-Cl2:A set in Python is a mutable collection of data types with no duplicates
-Cl3:A tuple is a collection that is ordered and immutable
-Cl4:A string in Python is immutable, but you could re-assign the variable
+Cl1: A list in Python is an ordered sequence of elements that is mutable
+Cl2: A set in Python is a mutable collection of data types with no duplicates
+Cl3: A tuple is a collection that is ordered and immutable
+Cl4: A string in Python is immutable, but you could re-assign the variable
 
-A:TypeErrorL 'str' object does not support item assignment
-W1:{'W', 'r', 'l', 'H', 'e', ' ', 'd', 'o'}
-W2:{'W', 'r', 'l', 'H', 'e', 'd', 'o'}
-W3:WrlHedo
+A: TypeErrorL 'str' object does not support item assignment
+W1: {'W', 'r', 'l', 'H', 'e', ' ', 'd', 'o'}
+W2: {'W', 'r', 'l', 'H', 'e', 'd', 'o'}
+W3: WrlHedo
 
-Q3:What is the output of the code below?
+Q3: What is the output of the code below?
 for x in range(10):
 	if(x == 10):
 		break
@@ -44,35 +44,35 @@ for x in range(10):
 		continue
 		break
 
-Cl1:The range function returns a sequence of numbers starting from 0
-Cl2:In Python pass is a null statement, which results in no operation
-Cl3:The continue statement in Python returns to the beginning of a loop
-Cl4:A break statement works just like the tradition break in C
+Cl1: The range function returns a sequence of numbers starting from 0
+Cl2: In Python pass is a null statement, which results in no operation
+Cl3: The continue statement in Python returns to the beginning of a loop
+Cl4: A break statement works just like the tradition break in C
 
-A:Hi Bye Hi Hi Bye Hi Bye Hi
-W1:Hi Bye Hi Bye Hi Bye Hi Hi 
-W2:Hi Hi Bye Hi Hi Bye Hi Bye OH
-W3:Hi Bye Hi Hi Bye Hi Bye Hi OH
+A: Hi Bye Hi Hi Bye Hi Bye Hi
+W1: Hi Bye Hi Bye Hi Bye Hi Hi
+W2: Hi Hi Bye Hi Hi Bye Hi Bye OH
+W3: Hi Bye Hi Hi Bye Hi Bye Hi OH
 
-Q4:What happens to the instance a in memory?
+Q4: What happens to the instance a in memory?
 class aClass(object):
 	pass
 a = aClass
 a.obj = a
 del a
 
-Cl1:Memory is managed by Python in a private heap space
-Cl2:Python objects and data structures are located in a private heap
-Cl3:Python has a built in garbage collector to free space in the heap
-Cl4:When an object has no references it is removed from memory
+Cl1: Memory is managed by Python in a private heap space
+Cl2: Python objects and data structures are located in a private heap
+Cl3: Python has a built in garbage collector to free space in the heap
+Cl4: When an object has no references it is removed from memory
 
-A:The instance is deleted and the memory is then deleted by garbage collection
-W1:Only the memory is deleted, but not the instance of the object
-W2:A error occurs for manually trying to delete the instance
-W3:The instance is no longer accessible, but not deleted in memory
+A: The instance is deleted and the memory is then deleted by garbage collection
+W1: Only the memory is deleted, but not the instance of the object
+W2: A error occurs for manually trying to delete the instance
+W3: The instance is no longer accessible, but not deleted in memory
 
 
-Q5:What is the output of the code below?
+Q5: What is the output of the code below?
 class Monkey:
 	def __init__(self, see, do):
 		self.see = see
@@ -86,12 +86,12 @@ if(chimp.see):
 else:
 	print("I am blind")
 
-Cl1:A Class in Python is like an object constructor, or "blueprint" for objects
-Cl2:You would use the __init__() function to assign values to object properties
-Cl3:Methods in objects are functions that belong to the object
-Cl4:self is a keyword that references the current instance of a class
+Cl1: A Class in Python is like an object constructor, or "blueprint" for objects
+Cl2: You would use the __init__() function to assign values to object properties
+Cl3: Methods in objects are functions that belong to the object
+Cl4: self is a keyword that references the current instance of a class
 
-A:I'll make a fool out of you
-W1:I'm no monkey
-W2:I can't
-W3:I am blind
+A: I'll make a fool out of you
+W1: I'm no monkey
+W2: I can't
+W3: I am blind
