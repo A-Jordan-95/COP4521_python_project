@@ -1,10 +1,10 @@
 from time import sleep
 import arcade
 print("inside start.py: imported arcade")
-sleep(2)
 from EscapeGame import MyGame 
 print("inside start.py: from EscapeGame imported MyGame ")
-sleep(2)
+from Levels import level_list
+
 #Start of new code TextButtons and StartView
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
@@ -159,6 +159,21 @@ class Lev4Button(TextButton):
         super().on_release()
         self.action_function()'''
 
+class score():
+    def __init__(self, center_x, center_y, score):
+        self.center_x = center_x
+        self.center_y = center_y
+        if score:
+            self.score = score
+        else: 
+            self.score = None
+
+    def draw(self):
+        if self.score:
+            arcade.draw_text("{:.2f} sec".format(self.score), self.center_x, self.center_y,
+                        arcade.csscolor.WHITE, 18)
+
+
 
 class StartView(arcade.View):
     #Runs when this window is called
@@ -185,6 +200,16 @@ class StartView(arcade.View):
         '''lev5_button = Lev5Button(800, 200, self.go_to_lev5)
         self.button_list.append(lev5_button)'''
 
+        self.score_list = []
+        lev1_score = score(100, 100, level_list[0].score)
+        self.score_list.append(lev1_score)
+        lev2_score = score(200, 100, level_list[1].score)
+        self.score_list.append(lev2_score)
+        lev3_score = score(200, 100, level_list[2].score)
+        self.score_list.append(lev3_score)
+        lev4_score = score(200, 100, level_list[3].score)
+        self.score_list.append(lev4_score)
+
     #Draws this window
     def on_draw(self):
         arcade.start_render()
@@ -194,6 +219,9 @@ class StartView(arcade.View):
 
         for button in self.button_list:
             button.draw()
+
+        for score in self.score_list:
+            score.draw()
         
     #Do this on Mouse click
     def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
