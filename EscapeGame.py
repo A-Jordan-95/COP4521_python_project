@@ -327,7 +327,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         # !--Game Over --!
         else:
             view = GameOverView()
-            game_window.show_view(view)
+            self.window.show_view(view)
             view.setup()
             self.game_over = False
 

@@ -150,14 +150,14 @@ class Lev4Button(TextButton):
         self.action_function()
 
 
-class Lev5Button(TextButton):
+'''class Lev5Button(TextButton):
     def __init__(self, center_x, center_y, action_function):
         super().__init__(center_x, center_y, 100, 40, "Level 5", 18, "Arial")
         self.action_function = action_function
 
     def on_release(self):
         super().on_release()
-        self.action_function()
+        self.action_function()'''
 
 
 class StartView(arcade.View):
@@ -176,19 +176,21 @@ class StartView(arcade.View):
         self.button_list = []
         lev1_button = Lev1Button(200, 200, self.go_to_lev1)
         self.button_list.append(lev1_button)
-        lev2_button = Lev2Button(350, 200, self.go_to_lev2)
+        lev2_button = Lev2Button(400, 200, self.go_to_lev2)
         self.button_list.append(lev2_button)
-        lev3_button = Lev3Button(500, 200, self.go_to_lev3)
+        lev3_button = Lev3Button(600, 200, self.go_to_lev3)
         self.button_list.append(lev3_button)
-        lev4_button = Lev4Button(650, 200, self.go_to_lev4)
+        lev4_button = Lev4Button(800, 200, self.go_to_lev4)
         self.button_list.append(lev4_button)
-        lev5_button = Lev5Button(800, 200, self.go_to_lev5)
-        self.button_list.append(lev5_button)
+        '''lev5_button = Lev5Button(800, 200, self.go_to_lev5)
+        self.button_list.append(lev5_button)'''
 
     #Draws this window
     def on_draw(self):
         arcade.start_render()
         arcade.draw_lrwh_rectangle_textured(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.background)
+        arcade.draw_text("Press 'p' for Pause Menu", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 25,
+                         arcade.color.BLACK, font_size=15, bold=True, anchor_x="center")
         self.texture1.draw_sized(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.3, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
         self.texture2.draw_sized(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.7, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 8)
 
@@ -222,7 +224,7 @@ class StartView(arcade.View):
         game_view.setup(3)
         self.window.show_view(game_view)
 
-    def go_to_lev5(self):
+    '''def go_to_lev5(self):
         game_view = MyGame()
         game_view.setup(4)
-        self.window.show_view(game_view)
+        self.window.show_view(game_view)'''

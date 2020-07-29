@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="25" height="75" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="25" height="75" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="1">
  <tileset firstgid="1" name="cave3_TileSet" tilewidth="241" tileheight="305" tilecount="23" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -72,9 +72,26 @@
    <image width="96" height="128" source="../Images/enemy_robot_idle.png"/>
   </tile>
  </tileset>
+ <tileset firstgid="25" name="doorClosed_mid" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../Images/doorClosed_mid.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="26" name="doorClosed_top" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../Images/doorClosed_top.png"/>
+  </tile>
+ </tileset>
  <layer id="1" name="Platforms" width="25" height="75">
   <data encoding="base64" compression="zlib">
    eJztmNsOwyAIhr1tt3bd+7/s5oUJMQJyUFmzP/Gu4SsgQthSStuEM1KrGOf3vJDT0lPBoFRYV2WD4hTGQ8DB7GC+r8hHycXV/tyFgSmz3+DAWHD/82v1gd1tbz9anB6G9A7UHI6B+S8RxTgd7ENG/l9rrdfa07o6n8nwfFOsftS9pvVPvQzLHY6ac4lPu5Ih1Z+BqzW3ROgfFvsaxqFgc4z6rdD47BUrqi5n3t3eeczCgJK8R9S8Xu4HFqteDjevUwxPRWFY57i7zYkWcbPJypx75IFjeIpjaPoFxuDeg1qSWM7YBUXIRy1ux+PBKLmT9LKIsVrFyO8VFbsIfkh2SBoGV8uSuWJ1rEYwNH2D2xdAhmdfwhijNHPPAOvAe48VKVZFWP+g+r62f+QD99aUjcLwzkGLMVJ33pHBOTzCzlLC0MxNPToAg5p5LafY/gCE8Q85
+  </data>
+ </layer>
+ <layer id="5" name="Doors" width="25" height="75">
+  <data encoding="base64" compression="zlib">
+   eJztzQENAAAIAyBraP+gtribgwJUcWkCRwcOAAAAAAAA+GYBnXcANA==
   </data>
  </layer>
  <layer id="2" name="Background" width="25" height="75">
@@ -84,7 +101,7 @@
  </layer>
  <layer id="3" name="Coins" width="25" height="75">
   <data encoding="base64" compression="zlib">
-   eJztzrkNACAMBLA0PPtPzAaUnFDsCVzFzU4HAADgYysdAHhopgMAtDHSAYBGDtdzABs=
+   eJztzkkNACAQBLD9cPhXjAnCkGyroFX8ZqcDAABwyUoHAB6a6QAAbYx0AKCRA9PTABs=
   </data>
  </layer>
  <layer id="4" name="Enemies" width="25" height="75">
