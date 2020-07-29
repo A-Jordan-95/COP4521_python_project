@@ -4,34 +4,19 @@ from time import perf_counter, sleep
 
 #user defined classes:
 import DBSetup
-print("inside EscapeGame.py: imported DBSetup")
 
 from logIn import logIn
-print("inside EscapeGame.py: from logIn imported logIn")
-
 import UpdateScores
-print("inside EscapeGame.py: imported UpdateScores")
-
 import start
-print("inside EscapeGame.py: imported start")
-
 from gameOver import GameOverView
-print("inside EscapeGame.py: from gameOver imported GameOverView")
-
 import Levels
-print("inside EscapeGame.py: imported Levels")
-
 import ComputerClue
-print("inside EscapeGame.py: imported ComputerClue")
-
 import PauseMenu
-print("inside EscapeGame.py: imported PauseMenu")
-
+from Questions import Questions
 
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
-#game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
 CHARACTER_SCALING = 0.75
 TILE_SCALING = 0.5
@@ -111,7 +96,9 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.levels = None
 
         #computer clue info:
-        self.comp_clue = None
+        self.questions = Questions()
+        self.questions.createlist()
+        self.questions.showlist()
         
         # pause menu
         self.pause_menu = None
@@ -328,7 +315,7 @@ def main():
     login = logIn()
     login.get_user()
     game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
-    #game_window.center_window()
+    game_window.center_window()
     start_view = start.StartView()
     game_window.show_view(start_view)
     start_view.setup()
