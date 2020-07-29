@@ -306,7 +306,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                     print(self.player_sprite.current_clues)
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
-                    #update High Scores in database here
+                    print(f"time to finish level {self.level+1}: {self.levels[self.level].score} seconds")
+
                     self.level += 1
 
                     #Setup next level
