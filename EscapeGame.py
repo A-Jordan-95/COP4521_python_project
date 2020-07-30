@@ -126,19 +126,12 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.levels = Levels.level_list
         self.levels[self.level].setup()
 
-        # no need to loop through and append the map items, simply assign the list 
-        # returned by the function:
-
-        #for wall in self.levels[self.level].get_walls(): self.wall_list.append(wall)
         self.wall_list = self.levels[self.level].get_walls()
 
-        #for coin in self.levels[self.level].get_coins(): self.coin_list.append(coin)
         self.coin_list = self.levels[self.level].get_coins()
 
-        #for enemy in self.levels[self.level].get_enemies(): self.enemy_list.append(enemy)
         self.enemy_list = self.levels[self.level].get_enemies()
 
-        #for background in self.levels[self.level].get_background(): self.background_list.append(background)
         self.background_list = self.levels[self.level].get_background()
 
         self.door_list = self.levels[self.level].get_doors()
@@ -191,7 +184,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             self.left_pressed = True
         if key == arcade.key.ENTER:
             if self.comp_clue.show_question:
-                self.comp_clue.exit_clue()
+                self.comp_clue.exit_question()
             if self.comp_clue.show_clue:
                 self.comp_clue.exit_clue()
                 
@@ -247,7 +240,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                 self.comp_clue.show_clue = True
                 self.player_sprite.current_clues.append(self.comp_clue.get_clue())
                 self.comp_clue.update_clue_pos(self.view_bottom, self.view_left)
-            if self.comp_clue.show_clue == False:
+            if self.comp_clue.show_clue == False and self.comp_clue.show_question == False:
                 #update physics engine
                 self.physics_engine.update()
                 #move enemies
@@ -330,8 +323,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             self.game_over = False
 
 def main():
-    login = logIn()
-    login.get_user()
+    # login = logIn()
+    # login.get_user()
     game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     game_window.center_window()
     start_view = start.StartView()

@@ -79,7 +79,7 @@ class ComputerClue():
             for x in self.questions:
                 arcade.draw_text(x, self.clue_sprite_list[0].center_x - 200,
                                  self.clue_sprite_list[0].center_y + 100 - newline,
-                                 arcade.csscolor.WHITE, 15)
+                                 arcade.csscolor.WHITE, 10)
                 newline += 20
             arcade.draw_text("Press Enter to close the clue.", self.clue_sprite_list[0].center_x - 300,
                              self.clue_sprite_list[0].center_y - 200,
