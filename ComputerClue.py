@@ -20,7 +20,6 @@ class ComputerClue():
         self.clue_sprite = arcade.Sprite("Images/clue_window.png", 1.5)
         self.clue_sprite_list.append(self.clue_sprite)
 
-<<<<<<< HEAD
     def parse_clues(self, level):
         f = open("questions/questions.txt", "r")
         clues = []
@@ -65,22 +64,9 @@ class ComputerClue():
                         line = f.readline()
                     clues = [f.readline() for x in range(3)]
                     clues.insert(0, line)
-                 
-
-        elif level == 4:
-            for line in f:
-                if "Q5" not in line:
-                    continue 
-                else:
-                    while "Cl1" not in line:
-                        line = f.readline()
-                    clues = [f.readline() for x in range(3)]
-                    clues.insert(0, line)
                 
         return clues
 
-=======
->>>>>>> 94d3992ee0b72e08e99f4675fd0be013f487eff9
     def update_clue_pos(self, view_bottom, view_left):
         self.clue_sprite_list[0].center_x = view_left + 500
         self.clue_sprite_list[0].center_y = view_bottom + 350
@@ -117,12 +103,8 @@ class ComputerClue():
                 elif x <= 15:
                     line4 += words_in_clue[x]
                     line4 += ' '
+                    
             self.clue_sprite_list.draw()
-
-            #arcade.draw_text(self.clues[self.clue_pos], self.clue_sprite_list[0].center_x - 300, self.clue_sprite_list[0].center_y,
-            #arcade.csscolor.WHITE, 16)
-            #arcade.draw_text("Press Enter to close the clue.", self.clue_sprite_list[0].center_x - 275, self.clue_sprite_list[0].center_y - 200,
-
             arcade.draw_text(line1, self.clue_sprite_list[0].center_x - 220, self.clue_sprite_list[0].center_y + 70,
             arcade.csscolor.WHITE, 18)
             arcade.draw_text(line2, self.clue_sprite_list[0].center_x - 220, self.clue_sprite_list[0].center_y + 40,
