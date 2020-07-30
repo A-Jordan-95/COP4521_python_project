@@ -6,12 +6,6 @@ from time import perf_counter, sleep
 import DBSetup
 
 from logIn import logIn
-<<<<<<< HEAD
-print("inside EscapeGame.py: from logIn imported logIn")
-
-=======
-import UpdateScores
->>>>>>> 94d3992ee0b72e08e99f4675fd0be013f487eff9
 import start
 from gameOver import GameOverView
 import Levels
@@ -298,13 +292,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                                                                  self.door_list)
             if door_hit_list and not self.questionAsked:
                 if(self.score == self.coinTotal):
-<<<<<<< HEAD
-                    self.time_stop = perf_counter()
-                    self.levels[self.level].score = self.time_stop - self.time_start
-                    print(f"time to finish level {self.level+1}: {self.levels[self.level].score} seconds")
-
-                    self.level += 1
-=======
                     print("Collected all clues, Player's current clues are:")
                     counter = 1
                     for clue in self.player_sprite.current_clues:
@@ -327,7 +314,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                     self.levels[self.level].score = self.time_stop - self.time_start
                     #update High Scores in database here
                     #self.level += 1
->>>>>>> 94d3992ee0b72e08e99f4675fd0be013f487eff9
 
                     #Setup next level
                     #self.first_draw_of_level = True #reset variable that triggers timer to start
