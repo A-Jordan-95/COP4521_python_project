@@ -10,6 +10,4 @@ conn.execute("""
         Password TEXT NOT NULL)
     """)
 conn.commit()
-
-print("database setup properly, closing connection...")
 conn.close()

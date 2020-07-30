@@ -4,6 +4,7 @@ class ComputerClue():
     def __init__(self):
         self.show_clue = False
         self.show_question = False
+        self.correct_answer = False
         self.first_clue = True
         self.clue_sprite = None
         self.clue_sprite_list = None
@@ -77,13 +78,20 @@ class ComputerClue():
             self.clue_sprite_list.draw()
             newline = 20
             for x in self.questions:
-                arcade.draw_text(x, self.clue_sprite_list[0].center_x - 200,
-                                 self.clue_sprite_list[0].center_y + 100 - newline,
-                                 arcade.csscolor.WHITE, 10)
+                arcade.draw_text(x, self.clue_sprite_list[0].center_x - 225,
+                                 self.clue_sprite_list[0].center_y + 175 - newline,
+                                 arcade.csscolor.WHITE, 14)
                 newline += 20
-            arcade.draw_text("Press Enter to close the clue.", self.clue_sprite_list[0].center_x - 300,
-                             self.clue_sprite_list[0].center_y - 200,
-                             arcade.csscolor.WHITE, 18)
+            
+            newline = 20
+            count = 1
+            for x in self.answers:
+                arcade.draw_text(f"{count}. {x}", self.clue_sprite_list[0].center_x - 225,
+                                 self.clue_sprite_list[0].center_y - newline,
+                                 arcade.csscolor.WHITE, 14)
+                newline += 20
+                count += 1
+            
         if self.show_clue:
             words_in_clue = [wrd for wrd in self.clues[self.clue_pos].split()]
             line1 = ''

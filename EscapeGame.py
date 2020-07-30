@@ -183,10 +183,12 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         if key == arcade.key.LEFT:
             self.left_pressed = True
         if key == arcade.key.ENTER:
-            if self.comp_clue.show_question:
-                self.comp_clue.exit_question()
             if self.comp_clue.show_clue:
                 self.comp_clue.exit_clue()
+        if key == arcade.key.KEY_1:
+            if self.comp_clue.show_question:
+                self.comp_clue.correct_answer = True
+                self.comp_clue.exit_question()
                 
         # pause game
         if key == arcade.key.P:
@@ -285,31 +287,19 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                                                                  self.door_list)
             if door_hit_list and not self.questionAsked:
                 if(self.score == self.coinTotal):
-                    print("Collected all clues, Player's current clues are:")
-                    counter = 1
-                    for clue in self.player_sprite.current_clues:
-                        print(str(counter) + ': '+ clue)
-                        counter += 1
-                    print("\nQuestion:")
-                    for text in self.comp_clue.questions:
-                        print(text)
-                    print("\nAnswers: ")
-                    counter = 1
-                    for answers in self.comp_clue.answers:
-                        print(str(counter) + ": " + answers)
-                        counter += 1
-
                     self.comp_clue.show_question = True
                     self.comp_clue.update_clue_pos(self.view_bottom, self.view_left)
                     self.questionAsked = True
-
+                
+            if self.comp_clue.correct_answer == True:
+                    self.comp_clue.correct_answer = False
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
-                    #self.level += 1
+                    self.level += 1
 
                     #Setup next level
-                    #self.first_draw_of_level = True #reset variable that triggers timer to start
-                    #self.setup(self.level)
+                    self.first_draw_of_level = True #reset variable that triggers timer to start
+                    self.setup(self.level)
 
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
@@ -323,8 +313,8 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
             self.game_over = False
 
 def main():
-    # login = logIn()
-    # login.get_user()
+    login = logIn()
+    login.get_user()
     game_window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     game_window.center_window()
     start_view = start.StartView()
