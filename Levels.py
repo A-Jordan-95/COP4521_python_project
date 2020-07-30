@@ -121,23 +121,8 @@ class Level4(Level):
             enemy.textures.append(texture)
 
 
-class Level5(Level):
-    def __init__(self):
-        self.map_object = None
-        super().__init__()
-        self.score = None
-
-    def setup(self):
-        super().setup("maps/cave_5.tmx")
-        for enemy in self.enemy_sprite_list:
-            enemy.change_x = 2
-            texture = arcade.load_texture(enemy.texture.name.split("-")[0], mirrored=True)
-            enemy.textures.append(texture)
-
-
 lev1 = Level1()
 lev2 = Level2()
 lev3 = Level3()
 lev4 = Level4()
-lev5 = Level5()
-level_list = [lev1, lev2, lev3, lev4, lev5]
+level_list = [lev1, lev2, lev3, lev4]

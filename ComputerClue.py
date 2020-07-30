@@ -12,10 +12,10 @@ class ComputerClue():
         self.answers = None
         self.clue_pos = 0
 
-    def setup(self, questions, clues, answers):
+    def setup(self, questions, level, answers):
         self.clue_sprite_list = arcade.SpriteList()
         self.questions = questions
-        self.clues = clues
+        self.clues = self.parse_clues(level)
         self.answers = answers
         self.clue_sprite = arcade.Sprite("Images/clue_window.png", 1.5)
         self.clue_sprite_list.append(self.clue_sprite)

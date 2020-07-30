@@ -13,7 +13,7 @@ class QuestionCreation(object):
 
     def createlist(self):
         lines = []
-        with open("questions\questions.txt") as file:
+        with open("questions/questions.txt") as file:
             lines = [line.rstrip()
                          .split("Q1:, Q2:, Q3:, Q4:, Q5:, Cl1:, Cl2:, Cl3:, Cl4:, A:, W1:, W2:, W3:, W4:")
                      for line in file]

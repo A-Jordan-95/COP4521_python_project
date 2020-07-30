@@ -1,10 +1,5 @@
-from time import sleep
 import arcade
-print("inside gameOver.py: imported arcade")
-sleep(2)
 import start
-print("inside gameOver.py: imported start")
-sleep(2)
 
 SCREEN_TITLE = "Escape The Hacker's Lair"
 SCREEN_WIDTH = 1000

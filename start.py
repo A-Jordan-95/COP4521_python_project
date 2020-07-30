@@ -1,8 +1,5 @@
-from time import sleep
 import arcade
-print("inside start.py: imported arcade")
 from EscapeGame import MyGame 
-print("inside start.py: from EscapeGame imported MyGame ")
 from Levels import level_list
 
 #Start of new code TextButtons and StartView
@@ -150,15 +147,6 @@ class Lev4Button(TextButton):
         self.action_function()
 
 
-'''class Lev5Button(TextButton):
-    def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "Level 5", 18, "Arial")
-        self.action_function = action_function
-
-    def on_release(self):
-        super().on_release()
-        self.action_function()'''
-
 class score():
     def __init__(self, center_x, center_y, score):
         self.center_x = center_x
@@ -171,7 +159,7 @@ class score():
     def draw(self):
         if self.score:
             arcade.draw_text("{:.2f} sec".format(self.score), self.center_x, self.center_y,
-                        arcade.csscolor.WHITE, 18)
+                        arcade.csscolor.WHITE, 20)
 
 
 
@@ -197,25 +185,23 @@ class StartView(arcade.View):
         self.button_list.append(lev3_button)
         lev4_button = Lev4Button(800, 200, self.go_to_lev4)
         self.button_list.append(lev4_button)
-        '''lev5_button = Lev5Button(800, 200, self.go_to_lev5)
-        self.button_list.append(lev5_button)'''
 
         self.score_list = []
-        lev1_score = score(100, 100, level_list[0].score)
+        lev1_score = score(130, 240, level_list[0].score)
         self.score_list.append(lev1_score)
-        lev2_score = score(200, 100, level_list[1].score)
+        lev2_score = score(330, 240, level_list[1].score)
         self.score_list.append(lev2_score)
-        lev3_score = score(200, 100, level_list[2].score)
+        lev3_score = score(530, 240, level_list[2].score)
         self.score_list.append(lev3_score)
-        lev4_score = score(200, 100, level_list[3].score)
+        lev4_score = score(730, 240, level_list[3].score)
         self.score_list.append(lev4_score)
 
     #Draws this window
     def on_draw(self):
         arcade.start_render()
         arcade.draw_lrwh_rectangle_textured(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.background)
-        arcade.draw_text("Press 'p' for Pause Menu", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 25,
-                         arcade.color.BLACK, font_size=15, bold=True, anchor_x="center")
+        arcade.draw_text("Press 'p' for Pause Menu", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 50,
+                         arcade.color.WHITE, font_size=20, bold=True, anchor_x="center")
         self.texture1.draw_sized(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.3, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
         self.texture2.draw_sized(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.7, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 8)
 

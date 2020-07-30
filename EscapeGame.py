@@ -154,7 +154,7 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
         self.questObj.createQuestions()
 
         self.comp_clue = ComputerClue.ComputerClue()
-        self.comp_clue.setup(self.questObj.questions[level], self.questObj.clues[level], self.questObj.answers[level])
+        self.comp_clue.setup(self.questObj.questions[level], self.level, self.questObj.answers[level])
         
         # set pause menu
         self.pause_menu = PauseMenu.PauseMenu(self)
@@ -312,7 +312,6 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
 
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
-                    #update High Scores in database here
                     #self.level += 1
 
                     #Setup next level
@@ -340,13 +339,6 @@ def main():
     start_view.setup()
     arcade.run()
                       
-
-#Old 'main()' for Window
-'''
-def main():
-    window = MyGame()
-    window.setup(window.level)
-    arcade.run()'''
 
 if __name__ == "__main__":
     main()
