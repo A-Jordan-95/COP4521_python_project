@@ -34,15 +34,15 @@ W3: WrlHedo
 
 Q3: What is the output of the code below?
 for x in range(10):
-	if(x == 10):
-		break
-	if(x%2 == 0):
-		print("Hi ", end="")
-		pass
-	if(x%3 == 1):
-		print("Bye ", end="")
-		continue
-		break
+    if(x == 10):
+        break
+    if(x%2 == 0):
+        print("Hi ", end="")
+        pass
+    if(x%3 == 1):
+        print("Bye ", end="")
+        continue
+        break
 
 Cl1: The range function returns a sequence of numbers starting from 0
 Cl2: In Python pass is a null statement, which results in no operation
@@ -56,7 +56,7 @@ W3: Hi Bye Hi Hi Bye Hi Bye Hi OH
 
 Q4: What happens to the instance a in memory?
 class aClass(object):
-	pass
+    pass
 a = aClass
 a.obj = a
 del a

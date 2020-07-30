@@ -14,6 +14,7 @@ class ComputerClue():
         self.clue_pos = 0
 
     def setup(self, questions, level, answers):
+        self.level = level
         self.clue_sprite_list = arcade.SpriteList()
         self.questions = questions
         self.clues = self.parse_clues(level)
@@ -78,19 +79,27 @@ class ComputerClue():
             self.clue_sprite_list.draw()
             newline = 20
             for x in self.questions:
-                arcade.draw_text(x, self.clue_sprite_list[0].center_x - 225,
+                arcade.draw_text(x, self.clue_sprite_list[0].center_x - 250,
                                  self.clue_sprite_list[0].center_y + 175 - newline,
                                  arcade.csscolor.WHITE, 14)
                 newline += 20
             
             newline = 20
             count = 1
-            for x in self.answers:
-                arcade.draw_text(f"{count}. {x}", self.clue_sprite_list[0].center_x - 225,
-                                 self.clue_sprite_list[0].center_y - newline,
-                                 arcade.csscolor.WHITE, 14)
-                newline += 20
-                count += 1
+            if self.level == 3:
+                for x in self.answers:
+                    arcade.draw_text(f"{count}. {x}", self.clue_sprite_list[0].center_x - 325,
+                                    self.clue_sprite_list[0].center_y - 50 - newline,
+                                    arcade.csscolor.WHITE, 10)
+                    newline += 20
+                    count += 1
+            else:
+                for x in self.answers:
+                    arcade.draw_text(f"{count}. {x}", self.clue_sprite_list[0].center_x - 275,
+                                    self.clue_sprite_list[0].center_y - 50 - newline,
+                                    arcade.csscolor.WHITE, 14)
+                    newline += 20
+                    count += 1
             
         if self.show_clue:
             words_in_clue = [wrd for wrd in self.clues[self.clue_pos].split()]

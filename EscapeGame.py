@@ -295,11 +295,16 @@ class MyGame(arcade.View):        #Changed '.Window' to .View
                     self.comp_clue.correct_answer = False
                     self.time_stop = perf_counter()
                     self.levels[self.level].score = self.time_stop - self.time_start
-                    self.level += 1
+                    if self.level <= 3:
+                        self.level += 1
 
-                    #Setup next level
-                    self.first_draw_of_level = True #reset variable that triggers timer to start
-                    self.setup(self.level)
+                        #Setup next level
+                        self.first_draw_of_level = True #reset variable that triggers timer to start
+                        self.setup(self.level)
+                    else:
+                        view = GameOverView()
+                        self.window.show_view(view)
+                        view.setup()
 
             #check for player hitting enemy:
             if len(arcade.check_for_collision_with_list(self.player_sprite, self.enemy_list)) > 0:
