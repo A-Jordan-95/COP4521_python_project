@@ -9,3 +9,5 @@
 .idea
 #ignore pycache:
 __pycache__
+#ignore '.vs':
+.vs
