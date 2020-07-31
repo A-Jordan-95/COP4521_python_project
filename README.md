@@ -14,6 +14,9 @@ Team Members:
   - sprites in the game came from various open source resources including:
     - https://kenney.nl/
     - https://www.spriters-resource.com/pc_computer/maplestory -credit to Boo and Magekar for sprites
+  - Some of the graphics from the start and game over screens came from this open source text graphics
+    creator:
+    - https://cooltext.com/
   - The purpose of the game is to collect all the python clues per level, then use those clues
     to answer a python related question in order to advance to the next level and escape the 
     evil Hacker's lair.
