@@ -33,4 +33,7 @@ Team Members:
    - Nathan Granger:
       - Designed level three, also created both the start screen (start.py) and the game over screen 
         (gameOver.py)
+        
+   - Paul Santora:
+     - Designed level four, Implemented the pause menu (PauseMenu.py)
 
