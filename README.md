@@ -13,7 +13,7 @@ Team Members:
   - The maps were built using the Tiled Map Editor software.
   - sprites in the game came from various open source resources including:
     - https://kenney.nl/
-    - 
+    - https://www.spriters-resource.com/pc_computer/maplestory -credit to Boo and Magekar for sprites
   - The purpose of the game is to collect all the python clues per level, then use those clues
     to answer a python related question in order to advance to the next level and escape the 
     evil Hacker's lair.
@@ -22,3 +22,8 @@ Team Members:
    - Alexander Jordan:
      - I designed level one, handled the majority of the map importing logic, wrote Levels.py,
        DBSetup.py, ComputerClue.py and login.py.
+
+    -Nicholas Ford:
+      - Designed level two, created the questions text file, question parsers (Question.py), 
+        Player class, and worked on flipping enemy textures.
+
