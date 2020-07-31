@@ -26,4 +26,8 @@ Team Members:
     -Nicholas Ford:
       - Designed level two, created the questions text file, question parsers (Question.py), 
         Player class, and worked on flipping enemy textures.
+   
+   - Nathan Granger:
+      - Designed level three, also created both the start screen (start.py) and the game over screen 
+        (gameOver.py)
 
