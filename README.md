@@ -3,41 +3,22 @@
 Team Members:
 - Alexander Jordan
 - Paul Santora
-- Jacob Petrillo
+- Jacob Petrillo (dropped the class)
 - Nicholas Ford
 - Nathan Granger
 
-
-- current ideas:
--  2D graphics based game
-    - python Arcade library seems to be a good choice for game design
-    - gameplay ideas:
-      - "Escape the Evil Hacker's Lair"
-        - Mario style adventure game
-        - cave setting
-        - players collect pieces of a computer on each level(hard drive, monitor, keyboard, mouse etc)
-        - avoid evil AI robots roaming around the caves.
-        - once all pieces found can use the computer to open the "vault" or something similar to the next level.
-        - maybe have player use computer to answer a computer sciencey question to "unlock" next level?
-          - i.e. what is proper syntax for python for loop, etc.
-
-WORKLOAD:
-  - necessary tasks to split up:
-    - 1. gathering/drawing graphics for the following sprites:
-      - player/s
-      - enemy/ies
-      - ground/walls of map setting
-      - other obstacles
-      - hidden pieces
-      - vault/door/lock to next level
-    - 2. build above graphics into game once gathered
-    - 3. build menu/transition screens
-    - 4. gameplay design:
-      - platformer with multiple levels
-      - initial goal of five total levels for the game
-    - 5. implementation of game physics/flow rules
-    - 6. stretch goals:
-        - connect game with a SQL backend using python libraries and
-          deploy as a web application with a site that tracks details
-          such as high scores, and allows user profiles etc.
-            - research feasibility of using flask for this task and decide
+# Project Description:
+  - This is a game written using python 3.6 or greater, which makes use of the arcade library,
+    the sqlite3 library, as well as the passlib library.
+  - The maps were built using the Tiled Map Editor software.
+  - sprites in the game came from various open source resources including:
+    - https://kenney.nl/
+    - 
+  - The purpose of the game is to collect all the python clues per level, then use those clues
+    to answer a python related question in order to advance to the next level and escape the 
+    evil Hacker's lair.
+    
+ # Division of work:
+   - Alexander Jordan:
+     - I designed level one, handled the majority of the map importing logic, wrote Levels.py,
+       DBSetup.py, ComputerClue.py and login.py.
