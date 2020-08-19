@@ -1,4 +1,4 @@
-# COP4521_python_project
+# Escape The Evil Hacker's Lair
 
 Team Members:
 - Alexander Jordan
