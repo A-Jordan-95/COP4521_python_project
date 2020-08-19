@@ -3,7 +3,6 @@
 Team Members:
 - Alexander Jordan
 - Paul Santora
-- Jacob Petrillo (dropped the class)
 - Nicholas Ford
 - Nathan Granger
 
